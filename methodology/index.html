@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>費率來源與計算方法：每個數字是怎麼來的</title>
+<meta name="description" content="12 個平台費率的官方來源連結、查核日期、模型假設（月費攤提、FBA 配送費、商品成本、匯率），以及模型刻意不包含的項目。">
+<link rel="canonical" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/methodology/">
+<link rel="alternate" hreflang="zh-Hant" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/methodology/">
+<link rel="alternate" hreflang="zh-Hans" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/methodology/">
+<link rel="alternate" hreflang="x-default" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/methodology/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="跨境費用智庫">
+<meta property="og:title" content="費率來源與計算方法：每個數字是怎麼來的">
+<meta property="og:description" content="12 個平台費率的官方來源連結、查核日期、模型假設（月費攤提、FBA 配送費、商品成本、匯率），以及模型刻意不包含的項目。">
+<meta property="og:url" content="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/methodology/">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--ink:#111827;--ink2:#374151;--muted:#6b7280;--line:#e5e7eb;--bg:#ffffff;--bg2:#f9fafb;
+--accent:#b91c1c;--accent2:#dc2626;--accent-soft:#fef2f2;--green:#047857;--green-soft:#ecfdf5;
+--amber:#b45309;--amber-soft:#fffbeb;--radius:12px}
+@media (prefers-color-scheme:dark){:root{--ink:#e5e7eb;--ink2:#d1d5db;--muted:#9ca3af;--line:#1f2937;
+--bg:#0b1020;--bg2:#121a2e;--accent:#f87171;--accent2:#fca5a5;--accent-soft:#2b1113;--green:#34d399;
+--green-soft:#062e26;--amber:#fbbf24;--amber-soft:#2c2109}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans CJK SC","Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+header.site{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:16px;height:auto;min-height:60px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.logo{font-weight:800;font-size:1.02rem;color:var(--ink);white-space:nowrap}
+.logo span{color:var(--accent)}
+header.site nav{display:flex;gap:14px;font-size:.88rem;overflow-x:auto;flex:1}
+header.site nav a{color:var(--ink2);white-space:nowrap}
+.lang{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.lang a{padding:2px 6px;border:1px solid var(--line);border-radius:6px;color:var(--ink2)}
+.lang a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:#fff;font-weight:650;font-size:.9rem}
+.btn:hover{text-decoration:none;filter:brightness(1.1)}
+.btn.small{padding:7px 12px;font-size:.82rem}
+main{padding:30px 0 56px}
+h1{font-size:clamp(1.55rem,3.3vw,2.3rem);line-height:1.28;letter-spacing:-.01em;margin:.25em 0 .5em}
+h2{font-size:clamp(1.15rem,2.1vw,1.45rem);margin:2em 0 .5em;line-height:1.35}
+h3{font-size:1.02rem;margin:1.5em 0 .35em}
+p{color:var(--ink2);margin:.65em 0}
+.lede{font-size:1.05rem;color:var(--ink2);max-width:76ch}
+.crumb{font-size:.8rem;color:var(--muted);margin-bottom:6px}
+.crumb a{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.stat .k{font-size:.75rem;color:var(--muted);font-weight:650}
+.stat .v{font-size:1.45rem;font-weight:800;margin-top:2px;letter-spacing:-.01em}
+.stat .s{font-size:.78rem;color:var(--muted)}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:14px 0}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--bg2);font-size:.76rem;color:var(--muted);font-weight:650}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.best td{background:var(--green-soft)}
+.tag{display:inline-block;font-size:.72rem;font-weight:650;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tag.g{background:var(--green-soft);color:var(--green)}
+.tag.a{background:var(--amber-soft);color:var(--amber)}
+.note{background:var(--amber-soft);border:1px solid color-mix(in srgb,var(--amber) 28%,transparent);border-radius:var(--radius);padding:13px 15px;font-size:.88rem;color:var(--ink2);margin:18px 0}
+.adslot{margin:26px 0;min-height:92px;border:1px dashed var(--line);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.72rem;letter-spacing:.14em;background:var(--bg2)}
+.cta{background:linear-gradient(135deg,#b91c1c,#111827);color:#fff;border-radius:16px;padding:26px 24px;margin:32px 0}
+.cta h2{color:#fff;margin:.1em 0 .3em;font-size:1.3rem}
+.cta p{color:#e5e7eb;margin:.3em 0 .9em;font-size:.92rem}
+.cta .btn{background:#fff;color:#111827}
+.cta .fine{font-size:.76rem;color:#d1d5db;margin:10px 0 0}
+.gridlinks{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:11px;margin:16px 0}
+.gridlinks a{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:13px 15px;color:var(--ink)}
+.gridlinks a:hover{border-color:var(--accent);text-decoration:none}
+.gridlinks .t{font-weight:650;font-size:.92rem}
+.gridlinks .d{font-size:.8rem;color:var(--muted);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0}
+.chips a{font-size:.81rem;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--ink2);background:var(--bg2)}
+.chips a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+form.calc{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:18px 0}
+form.calc label{display:block;font-size:.8rem;font-weight:650;color:var(--ink2);margin:9px 0 4px}
+form.calc input,form.calc select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:.95rem}
+form.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){form.calc .row{grid-template-columns:1fr}}
+.bar{height:8px;background:var(--accent);border-radius:4px;display:block}
+.barrow{display:grid;grid-template-columns:150px 1fr 84px;gap:9px;align-items:center;font-size:.8rem;margin:5px 0}
+@media(max-width:560px){.barrow{grid-template-columns:104px 1fr 72px;font-size:.76rem}}
+footer.site{border-top:1px solid var(--line);padding:28px 0 44px;font-size:.84rem;color:var(--muted)}
+footer.site a{color:var(--ink2)}
+footer.site .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:16px}
+footer.site strong{display:block;color:var(--ink);font-size:.8rem;margin-bottom:5px}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site li{margin:2px 0}
+small.fine{display:block;margin-top:9px;color:var(--muted);font-size:.76rem;line-height:1.6}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "費率來源與計算方法：每個數字是怎麼來的", "description": "12 個平台費率的官方來源連結、查核日期、模型假設（月費攤提、FBA 配送費、商品成本、匯率），以及模型刻意不包含的項目。", "url": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/methodology/", "dateModified": "2026-11-17", "inLanguage": "zh-Hant", "isPartOf": {"@type": "WebSite", "name": "跨境費用智庫", "url": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/"}, {"@type": "ListItem", "position": 2, "name": "費率與來源", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/methodology/"}]}</script>
+
+</head>
+<body><header class="site"><div class="wrap">
+<a class="logo" href="../">跨境費用智庫<span>·手續費</span></a>
+<nav>
+<a href="../fees/">平台</a>
+<a href="../calculator/">計算機</a>
+<a href="../compare/">比較</a>
+<a href="../best/">依品類</a>
+<a href="../guides/">指南</a>
+<a href="../methodology/">費率與來源</a>
+</nav>
+<span class="lang"><a class="on" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/methodology/">繁</a><a class="" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/methodology/">简</a></span>
+<a class="btn small" href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">ROAS 模板 · US$24</a>
+</div></header><main><div class="wrap">
+<div class="crumb"><a href="../">首頁</a> › 費率與來源</div>
+<h1>費率來源與計算方法</h1>
+<p class="lede">這個站的每個數字都來自平台自己的費率頁，查核日期標在每一頁與下表。假設（不是平台公告的部分）全部公開列在下面，
+你可以自己替換成你的實際數字。</p>
+<h2>各平台來源</h2>
+<div class="tablewrap"><table><thead><tr><th class="">平台</th><th class="">查核日</th><th class="">計入的費用項目</th><th class="">來源</th></tr></thead><tbody><tr><td class=""><a href="../fees/amazon-fba/">Amazon FBA</a></td><td class="">2026-11-11</td><td class="">銷售佣金 15%（多數品類）；FBA 配送費（標準尺寸約 1 磅）；專業賣家月費攤提</td><td class=""><a href="https://sell.amazon.com/pricing" target="_blank" rel="noopener nofollow">官方費率頁</a></td></tr><tr><td class=""><a href="../fees/tiktok-shop/">TikTok Shop</a></td><td class="">2026-11-11</td><td class="">平台推薦費 6%（含金流）</td><td class=""><a href="https://seller-us.tiktok.com/university/essay?knowledge_id=6837719619753733" target="_blank" rel="noopener nofollow">官方費率頁</a></td></tr><tr><td class=""><a href="../fees/shopee-tw/">蝦皮購物（台灣站）</a></td><td class="">2026-11-17</td><td class="">成交手續費 5.5%（品類基本費率，以一般品類為例）；金流與系統處理費 2.5%；免運及進階賣家專案 6%（方案一）；代收轉付發票服務費 NT$2.5</td><td class=""><a href="https://seller.shopee.tw/edu/article/26470" target="_blank" rel="noopener nofollow">官方費率頁</a></td></tr><tr><td class=""><a href="../fees/shopee-sg/">Shopee 新加坡站</a></td><td class="">2026-10-26</td><td class="">佣金 14.17%（非 Mall、一般非電子品類）；交易手續費 3.27%</td><td class=""><a href="https://seller.shopee.sg/edu/article/25847" target="_blank" rel="noopener nofollow">官方費率頁</a></td></tr><tr><td class=""><a href="../fees/shopify/">Shopify</a></td><td class="">2026-11-11</td><td class="">金流處理 2.9% + US$0.30；第三方金流附加費 2%；月費攤提</td><td class=""><a href="https://www.shopify.com/pricing" target="_blank" rel="noopener nofollow">官方費率頁</a></td></tr><tr><td class=""><a href="../fees/etsy/">Etsy</a></td><td class="">2026-11-11</td><td class="">上架費；交易費 6.5%（含運費與禮品包裝）；金流處理 3% + US$0.25</td><td class=""><a href="https://www.etsy.com/legal/fees/" target="_blank" rel="noopener nofollow">官方費率頁</a></td></tr><tr><td class=""><a href="../fees/ebay/">eBay</a></td><td class="">2026-11-11</td><td class="">成交費 13.6%（前 US$7,500）；成交費 2.35%（超過 US$7,500 部分）；每筆訂單費</td><td class=""><a href="https://www.ebay.com/help/selling/fees-credits-invoices/selling-fees" target="_blank" rel="noopener nofollow">官方費率頁</a></td></tr><tr><td class=""><a href="../fees/walmart/">Walmart Marketplace</a></td><td class="">2026-11-11</td><td class="">品類佣金 15%（多數品類）</td><td class=""><a href="https://marketplace.walmart.com/pricing/" target="_blank" rel="noopener nofollow">官方費率頁</a></td></tr><tr><td class=""><a href="../fees/stripe/">Stripe</a></td><td class="">2026-11-11</td><td class="">刷卡處理 2.9% + US$0.30；跨境附加 2.5%（國際卡 1.5%＋幣別轉換 1%）</td><td class=""><a href="https://stripe.com/pricing" target="_blank" rel="noopener nofollow">官方費率頁</a></td></tr><tr><td class=""><a href="../fees/paypal/">PayPal</a></td><td class="">2026-11-11</td><td class="">PayPal 結帳 3.49% + US$0.49；跨境交易附加 1.5%</td><td class=""><a href="https://www.paypal.com/us/business/paypal-business-fees" target="_blank" rel="noopener nofollow">官方費率頁</a></td></tr><tr><td class=""><a href="../fees/gumroad/">Gumroad</a></td><td class="">2026-11-11</td><td class="">平台費 10%；每筆固定費 US$0.50；金流處理 2.9% + US$0.30</td><td class=""><a href="https://gumroad.com/pricing" target="_blank" rel="noopener nofollow">官方費率頁</a></td></tr><tr><td class=""><a href="../fees/lemon-squeezy/">Lemon Squeezy</a></td><td class="">2026-11-11</td><td class="">平台費 5%（含金流與稅務）；每筆固定費 US$0.50；非美國買家附加 1.5%</td><td class=""><a href="https://www.lemonsqueezy.com/pricing" target="_blank" rel="noopener nofollow">官方費率頁</a></td></tr></tbody></table></div>
+<h2>模型假設（ASSUMPTION）</h2>
+<ul>
+<li><strong>月費攤提 200 單</strong>：Amazon 專業帳戶 US$39.99、Shopify Basic US$39 除以每月訂單數。單量少時每單成本明顯上升。</li>
+<li><strong>FBA 配送費 US$4.15</strong>：標準尺寸、約 1 磅。實際依尺寸段、重量與旺季附加費而異。</li>
+<li><strong>商品成本 30%</strong>：只用於計算貢獻毛利與損益兩平 ROAS，不影響平台費本身。</li>
+<li><strong>匯率</strong>：US$1 ≈ NT$32、HK$7.8、S$1.35，僅用於顯示約當金額，不影響費用計算（Shopee 新加坡的 S$60 佣金上限已換算為 US$44）。</li>
+<li><strong>蝦皮台灣站</strong>：成交手續費以一般品類 5.5% 示範（各品類 4–7.5%），金流費 2.5%，免運及進階賣家專案採方案一 6%；另計代收轉付發票 NT$2.5／張。</li>
+<li><strong>Stripe／PayPal 跨境附加</strong>：以台灣／香港帳戶收美元、買家持海外卡為情境，Stripe 加 2.5%（國際卡 1.5%＋幣別轉換 1%）、PayPal 加 1.5%。</li>
+</ul>
+<h2>刻意不包含的項目</h2>
+<p>廣告費（Amazon PPC、蝦皮關鍵字廣告、TikTok 達人佣金）、促銷檔期費率、退貨與退款處理、倉儲與長期倉租、
+頭程運費與關稅、收款工具的提領費與匯損、稅務（營業稅、VAT／GST）。這些都會改變實際毛利，但不在平台費的定義裡。
+本站的計算機讓你手動加入廣告費與商品成本；Excel 模板則把關稅、頭程與退貨率都做成可調參數。</p>
+<h2>費率會變</h2>
+<p>2026年11月17日查核後已知的變動：蝦皮購物台灣站公告 2026/12/11 起調整成交手續費與金流與系統處理費；
+Shopee 新加坡站 2026/8/28 起適用新佣金表；TikTok Shop 美國站現行 6%（部分品類 5%），坊間流傳的 8% 未在官方頁面落實。
+定價前請以官方頁面與你的賣家後台帳單為準。</p>
+<div class="note">本站在 GitHub Pages 上以靜態頁面發佈，不使用 Cookie、不載入外部字型或追蹤腳本。與任何平台均無合作關係，也不代操帳號。</div>
+<div class="adslot" aria-hidden="true">廣告</div>
+<div class="adslot" aria-hidden="true">廣告</div>
+<div class="cta">
+<h2>把這一頁的算法搬進 Excel，換成你自己的數字</h2>
+<p><strong>跨境電商利潤與廣告 ROAS 核算模板（繁簡雙語 Excel）</strong>是本站的 Excel 版：12 個平台的費用對照、FBA 與直發的物流關稅模型、損益兩平 ROAS 與可付廣告費上限、30 個 SKU 的獲利分級、組合折扣模擬，以及一頁式的月度結算表。</p>
+<a class="btn" href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">取得模板 — US$24（優惠碼 LAUNCH25 折 25% → US$18）</a>
+<p class="fine">立即下載 · Excel .xlsx，可用 Excel、Google Sheets、LibreOffice 開啟 · 一次購買永久使用。</p>
+</div>
+</div></main><footer class="site"><div class="wrap">
+<div class="cols">
+<div><strong>跨境費用智庫</strong>
+華語跨境賣家的平台費、實拿與 ROAS 試算。免註冊、免追蹤、無外部字型。<br>
+<a href="../calculator/">→ 手續費與損益兩平 ROAS 計算機</a></div>
+<div><strong>主要平台</strong><ul>
+<li><a href="../fees/shopee-tw/">蝦皮購物（台灣）</a> · <a href="../fees/shopee-sg/">Shopee 新加坡</a></li>
+<li><a href="../fees/amazon-fba/">Amazon FBA</a> · <a href="../fees/tiktok-shop/">TikTok Shop</a></li>
+<li><a href="../fees/etsy/">Etsy</a> · <a href="../fees/shopify/">Shopify</a></li>
+<li><a href="../fees/">全部 12 個平台 →</a></li></ul></div>
+<div><strong>工具與模板</strong><ul>
+<li><a href="../calculator/">費用與實拿計算機</a></li>
+<li><a href="../compare/">平台一對一比較</a></li>
+<li><a href="../best/">依品類選平台</a></li>
+<li><a href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">利潤與 ROAS 核算模板（US$24）</a></li></ul></div>
+</div>
+<p><small class="fine">費率取自各平台官方費率頁，查核日 2026年11月17日（美元售價、單件訂單、不含廣告與促銷）。平台費率隨時調整，定價前請以官方頁面為準。與任何平台均無合作關係；數字為比較用的估算，非稅務或會計建議。</small></p>
+<p><small class="fine">© 2026 跨境費用智庫 · <a href="../methodology/">費率來源與計算方法</a></small></p>
+</div></footer>
+</body></html>

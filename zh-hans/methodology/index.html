@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>费率来源与计算方法：每个数字是怎么来的</title>
+<meta name="description" content="12 个平台费率的官方来源连结、查核日期、模型假设（月费摊提、FBA 配送费、商品成本、汇率），以及模型刻意不包含的项目。">
+<link rel="canonical" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/methodology/">
+<link rel="alternate" hreflang="zh-Hant" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/methodology/">
+<link rel="alternate" hreflang="zh-Hans" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/methodology/">
+<link rel="alternate" hreflang="x-default" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/methodology/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="跨境费用智库">
+<meta property="og:title" content="费率来源与计算方法：每个数字是怎么来的">
+<meta property="og:description" content="12 个平台费率的官方来源连结、查核日期、模型假设（月费摊提、FBA 配送费、商品成本、汇率），以及模型刻意不包含的项目。">
+<meta property="og:url" content="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/methodology/">
+<meta property="og:locale" content="zh_Hans">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--ink:#111827;--ink2:#374151;--muted:#6b7280;--line:#e5e7eb;--bg:#ffffff;--bg2:#f9fafb;
+--accent:#b91c1c;--accent2:#dc2626;--accent-soft:#fef2f2;--green:#047857;--green-soft:#ecfdf5;
+--amber:#b45309;--amber-soft:#fffbeb;--radius:12px}
+@media (prefers-color-scheme:dark){:root{--ink:#e5e7eb;--ink2:#d1d5db;--muted:#9ca3af;--line:#1f2937;
+--bg:#0b1020;--bg2:#121a2e;--accent:#f87171;--accent2:#fca5a5;--accent-soft:#2b1113;--green:#34d399;
+--green-soft:#062e26;--amber:#fbbf24;--amber-soft:#2c2109}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans CJK SC","Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+header.site{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:16px;height:auto;min-height:60px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.logo{font-weight:800;font-size:1.02rem;color:var(--ink);white-space:nowrap}
+.logo span{color:var(--accent)}
+header.site nav{display:flex;gap:14px;font-size:.88rem;overflow-x:auto;flex:1}
+header.site nav a{color:var(--ink2);white-space:nowrap}
+.lang{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.lang a{padding:2px 6px;border:1px solid var(--line);border-radius:6px;color:var(--ink2)}
+.lang a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:#fff;font-weight:650;font-size:.9rem}
+.btn:hover{text-decoration:none;filter:brightness(1.1)}
+.btn.small{padding:7px 12px;font-size:.82rem}
+main{padding:30px 0 56px}
+h1{font-size:clamp(1.55rem,3.3vw,2.3rem);line-height:1.28;letter-spacing:-.01em;margin:.25em 0 .5em}
+h2{font-size:clamp(1.15rem,2.1vw,1.45rem);margin:2em 0 .5em;line-height:1.35}
+h3{font-size:1.02rem;margin:1.5em 0 .35em}
+p{color:var(--ink2);margin:.65em 0}
+.lede{font-size:1.05rem;color:var(--ink2);max-width:76ch}
+.crumb{font-size:.8rem;color:var(--muted);margin-bottom:6px}
+.crumb a{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.stat .k{font-size:.75rem;color:var(--muted);font-weight:650}
+.stat .v{font-size:1.45rem;font-weight:800;margin-top:2px;letter-spacing:-.01em}
+.stat .s{font-size:.78rem;color:var(--muted)}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:14px 0}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--bg2);font-size:.76rem;color:var(--muted);font-weight:650}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.best td{background:var(--green-soft)}
+.tag{display:inline-block;font-size:.72rem;font-weight:650;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tag.g{background:var(--green-soft);color:var(--green)}
+.tag.a{background:var(--amber-soft);color:var(--amber)}
+.note{background:var(--amber-soft);border:1px solid color-mix(in srgb,var(--amber) 28%,transparent);border-radius:var(--radius);padding:13px 15px;font-size:.88rem;color:var(--ink2);margin:18px 0}
+.adslot{margin:26px 0;min-height:92px;border:1px dashed var(--line);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.72rem;letter-spacing:.14em;background:var(--bg2)}
+.cta{background:linear-gradient(135deg,#b91c1c,#111827);color:#fff;border-radius:16px;padding:26px 24px;margin:32px 0}
+.cta h2{color:#fff;margin:.1em 0 .3em;font-size:1.3rem}
+.cta p{color:#e5e7eb;margin:.3em 0 .9em;font-size:.92rem}
+.cta .btn{background:#fff;color:#111827}
+.cta .fine{font-size:.76rem;color:#d1d5db;margin:10px 0 0}
+.gridlinks{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:11px;margin:16px 0}
+.gridlinks a{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:13px 15px;color:var(--ink)}
+.gridlinks a:hover{border-color:var(--accent);text-decoration:none}
+.gridlinks .t{font-weight:650;font-size:.92rem}
+.gridlinks .d{font-size:.8rem;color:var(--muted);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0}
+.chips a{font-size:.81rem;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--ink2);background:var(--bg2)}
+.chips a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+form.calc{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:18px 0}
+form.calc label{display:block;font-size:.8rem;font-weight:650;color:var(--ink2);margin:9px 0 4px}
+form.calc input,form.calc select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:.95rem}
+form.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){form.calc .row{grid-template-columns:1fr}}
+.bar{height:8px;background:var(--accent);border-radius:4px;display:block}
+.barrow{display:grid;grid-template-columns:150px 1fr 84px;gap:9px;align-items:center;font-size:.8rem;margin:5px 0}
+@media(max-width:560px){.barrow{grid-template-columns:104px 1fr 72px;font-size:.76rem}}
+footer.site{border-top:1px solid var(--line);padding:28px 0 44px;font-size:.84rem;color:var(--muted)}
+footer.site a{color:var(--ink2)}
+footer.site .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:16px}
+footer.site strong{display:block;color:var(--ink);font-size:.8rem;margin-bottom:5px}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site li{margin:2px 0}
+small.fine{display:block;margin-top:9px;color:var(--muted);font-size:.76rem;line-height:1.6}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "费率来源与计算方法：每个数字是怎么来的", "description": "12 个平台费率的官方来源连结、查核日期、模型假设（月费摊提、FBA 配送费、商品成本、汇率），以及模型刻意不包含的项目。", "url": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/methodology/", "dateModified": "2026-11-17", "inLanguage": "zh-Hans", "isPartOf": {"@type": "WebSite", "name": "跨境费用智库", "url": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "费率与来源", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/methodology/"}]}</script>
+
+</head>
+<body><header class="site"><div class="wrap">
+<a class="logo" href="../../zh-hans/">跨境费用智库<span>·手续费</span></a>
+<nav>
+<a href="../../zh-hans/fees/">平台</a>
+<a href="../../zh-hans/calculator/">计算机</a>
+<a href="../../zh-hans/compare/">比较</a>
+<a href="../../zh-hans/best/">依品类</a>
+<a href="../../zh-hans/guides/">指南</a>
+<a href="../../zh-hans/methodology/">费率与来源</a>
+</nav>
+<span class="lang"><a class="" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/methodology/">繁</a><a class="on" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/methodology/">简</a></span>
+<a class="btn small" href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">ROAS 模板 · US$24</a>
+</div></header><main><div class="wrap">
+<div class="crumb"><a href="../../zh-hans/">首页</a> › 费率与来源</div>
+<h1>费率来源与计算方法</h1>
+<p class="lede">这个站的每个数字都来自平台自己的费率页，查核日期标在每一页与下表。假设（不是平台公告的部分）全部公开列在下面，
+你可以自己替换成你的实际数字。</p>
+<h2>各平台来源</h2>
+<div class="tablewrap"><table><thead><tr><th class="">平台</th><th class="">查核日</th><th class="">计入的费用项目</th><th class="">来源</th></tr></thead><tbody><tr><td class=""><a href="../../zh-hans/fees/amazon-fba/">Amazon FBA</a></td><td class="">2026-11-11</td><td class="">销售佣金 15%（多数品类）；FBA 配送费（标准尺寸约 1 磅）；专业卖家月费摊提</td><td class=""><a href="https://sell.amazon.com/pricing" target="_blank" rel="noopener nofollow">官方费率页</a></td></tr><tr><td class=""><a href="../../zh-hans/fees/tiktok-shop/">TikTok Shop</a></td><td class="">2026-11-11</td><td class="">平台推荐费 6%（含金流）</td><td class=""><a href="https://seller-us.tiktok.com/university/essay?knowledge_id=6837719619753733" target="_blank" rel="noopener nofollow">官方费率页</a></td></tr><tr><td class=""><a href="../../zh-hans/fees/shopee-tw/">虾皮购物（台湾站）</a></td><td class="">2026-11-17</td><td class="">成交手续费 5.5%（品类基本费率，以一般品类为例）；金流与系统处理费 2.5%；免运及进阶卖家专案 6%（方案一）；代收转付发票服务费 NT$2.5</td><td class=""><a href="https://seller.shopee.tw/edu/article/26470" target="_blank" rel="noopener nofollow">官方费率页</a></td></tr><tr><td class=""><a href="../../zh-hans/fees/shopee-sg/">Shopee 新加坡站</a></td><td class="">2026-10-26</td><td class="">佣金 14.17%（非 Mall、一般非电子品类）；交易手续费 3.27%</td><td class=""><a href="https://seller.shopee.sg/edu/article/25847" target="_blank" rel="noopener nofollow">官方费率页</a></td></tr><tr><td class=""><a href="../../zh-hans/fees/shopify/">Shopify</a></td><td class="">2026-11-11</td><td class="">金流处理 2.9% + US$0.30；第三方金流附加费 2%；月费摊提</td><td class=""><a href="https://www.shopify.com/pricing" target="_blank" rel="noopener nofollow">官方费率页</a></td></tr><tr><td class=""><a href="../../zh-hans/fees/etsy/">Etsy</a></td><td class="">2026-11-11</td><td class="">上架费；交易费 6.5%（含运费与礼品包装）；金流处理 3% + US$0.25</td><td class=""><a href="https://www.etsy.com/legal/fees/" target="_blank" rel="noopener nofollow">官方费率页</a></td></tr><tr><td class=""><a href="../../zh-hans/fees/ebay/">eBay</a></td><td class="">2026-11-11</td><td class="">成交费 13.6%（前 US$7,500）；成交费 2.35%（超过 US$7,500 部分）；每笔订单费</td><td class=""><a href="https://www.ebay.com/help/selling/fees-credits-invoices/selling-fees" target="_blank" rel="noopener nofollow">官方费率页</a></td></tr><tr><td class=""><a href="../../zh-hans/fees/walmart/">Walmart Marketplace</a></td><td class="">2026-11-11</td><td class="">品类佣金 15%（多数品类）</td><td class=""><a href="https://marketplace.walmart.com/pricing/" target="_blank" rel="noopener nofollow">官方费率页</a></td></tr><tr><td class=""><a href="../../zh-hans/fees/stripe/">Stripe</a></td><td class="">2026-11-11</td><td class="">刷卡处理 2.9% + US$0.30；跨境附加 2.5%（国际卡 1.5%＋币别转换 1%）</td><td class=""><a href="https://stripe.com/pricing" target="_blank" rel="noopener nofollow">官方费率页</a></td></tr><tr><td class=""><a href="../../zh-hans/fees/paypal/">PayPal</a></td><td class="">2026-11-11</td><td class="">PayPal 结帐 3.49% + US$0.49；跨境交易附加 1.5%</td><td class=""><a href="https://www.paypal.com/us/business/paypal-business-fees" target="_blank" rel="noopener nofollow">官方费率页</a></td></tr><tr><td class=""><a href="../../zh-hans/fees/gumroad/">Gumroad</a></td><td class="">2026-11-11</td><td class="">平台费 10%；每笔固定费 US$0.50；金流处理 2.9% + US$0.30</td><td class=""><a href="https://gumroad.com/pricing" target="_blank" rel="noopener nofollow">官方费率页</a></td></tr><tr><td class=""><a href="../../zh-hans/fees/lemon-squeezy/">Lemon Squeezy</a></td><td class="">2026-11-11</td><td class="">平台费 5%（含金流与税务）；每笔固定费 US$0.50；非美国买家附加 1.5%</td><td class=""><a href="https://www.lemonsqueezy.com/pricing" target="_blank" rel="noopener nofollow">官方费率页</a></td></tr></tbody></table></div>
+<h2>模型假设（ASSUMPTION）</h2>
+<ul>
+<li><strong>月费摊提 200 单</strong>：Amazon 专业帐户 US$39.99、Shopify Basic US$39 除以每月订单数。单量少时每单成本明显上升。</li>
+<li><strong>FBA 配送费 US$4.15</strong>：标准尺寸、约 1 磅。实际依尺寸段、重量与旺季附加费而异。</li>
+<li><strong>商品成本 30%</strong>：只用于计算贡献毛利与损益两平 ROAS，不影响平台费本身。</li>
+<li><strong>汇率</strong>：US$1 ≈ NT$32、HK$7.8、S$1.35，仅用于显示约当金额，不影响费用计算（Shopee 新加坡的 S$60 佣金上限已换算为 US$44）。</li>
+<li><strong>虾皮台湾站</strong>：成交手续费以一般品类 5.5% 示范（各品类 4–7.5%），金流费 2.5%，免运及进阶卖家专案采方案一 6%；另计代收转付发票 NT$2.5／张。</li>
+<li><strong>Stripe／PayPal 跨境附加</strong>：以台湾／香港帐户收美元、买家持海外卡为情境，Stripe 加 2.5%（国际卡 1.5%＋币别转换 1%）、PayPal 加 1.5%。</li>
+</ul>
+<h2>刻意不包含的项目</h2>
+<p>广告费（Amazon PPC、虾皮关键字广告、TikTok 达人佣金）、促销档期费率、退货与退款处理、仓储与长期仓租、
+头程运费与关税、收款工具的提领费与汇损、税务（营业税、VAT／GST）。这些都会改变实际毛利，但不在平台费的定义里。
+本站的计算机让你手动加入广告费与商品成本；Excel 模板则把关税、头程与退货率都做成可调参数。</p>
+<h2>费率会变</h2>
+<p>2026年11月17日查核后已知的变动：虾皮购物台湾站公告 2026/12/11 起调整成交手续费与金流与系统处理费；
+Shopee 新加坡站 2026/8/28 起适用新佣金表；TikTok Shop 美国站现行 6%（部分品类 5%），坊间流传的 8% 未在官方页面落实。
+定价前请以官方页面与你的卖家后台帐单为准。</p>
+<div class="note">本站在 GitHub Pages 上以静态页面发布，不使用 Cookie、不载入外部字型或追踪脚本。与任何平台均无合作关系，也不代操帐号。</div>
+<div class="adslot" aria-hidden="true">广告</div>
+<div class="adslot" aria-hidden="true">广告</div>
+<div class="cta">
+<h2>把这一页的算法搬进 Excel，换成你自己的数字</h2>
+<p><strong>跨境电商利润与广告 ROAS 核算模板（繁简双语 Excel）</strong>是本站的 Excel 版：12 个平台的费用对照、FBA 与直发的物流关税模型、损益两平 ROAS 与可付广告费上限、30 个 SKU 的获利分级、组合折扣模拟，以及一页式的月度结算表。</p>
+<a class="btn" href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">取得模板 — US$24（优惠码 LAUNCH25 折 25% → US$18）</a>
+<p class="fine">立即下载 · Excel .xlsx，可用 Excel、Google Sheets、LibreOffice 开启 · 一次购买永久使用。</p>
+</div>
+</div></main><footer class="site"><div class="wrap">
+<div class="cols">
+<div><strong>跨境费用智库</strong>
+华语跨境卖家的平台费、实拿与 ROAS 试算。免注册、免追踪、无外部字型。<br>
+<a href="../../zh-hans/calculator/">→ 手续费与损益两平 ROAS 计算机</a></div>
+<div><strong>主要平台</strong><ul>
+<li><a href="../../zh-hans/fees/shopee-tw/">虾皮购物（台湾）</a> · <a href="../../zh-hans/fees/shopee-sg/">Shopee 新加坡</a></li>
+<li><a href="../../zh-hans/fees/amazon-fba/">Amazon FBA</a> · <a href="../../zh-hans/fees/tiktok-shop/">TikTok Shop</a></li>
+<li><a href="../../zh-hans/fees/etsy/">Etsy</a> · <a href="../../zh-hans/fees/shopify/">Shopify</a></li>
+<li><a href="../../zh-hans/fees/">全部 12 个平台 →</a></li></ul></div>
+<div><strong>工具与模板</strong><ul>
+<li><a href="../../zh-hans/calculator/">费用与实拿计算机</a></li>
+<li><a href="../../zh-hans/compare/">平台一对一比较</a></li>
+<li><a href="../../zh-hans/best/">依品类选平台</a></li>
+<li><a href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">利润与 ROAS 核算模板（US$24）</a></li></ul></div>
+</div>
+<p><small class="fine">费率取自各平台官方费率页，查核日 2026年11月17日（美元售价、单件订单、不含广告与促销）。平台费率随时调整，定价前请以官方页面为准。与任何平台均无合作关系；数字为比较用的估算，非税务或会计建议。</small></p>
+<p><small class="fine">© 2026 跨境费用智库 · <a href="../../zh-hans/methodology/">费率来源与计算方法</a></small></p>
+</div></footer>
+</body></html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>直发与 FBA 的成本分界：US$25 是这一代跨境卖家的门槛</title>
+<meta name="description" content="直发的运费与关税、FBA 的头程与配送费，哪一种在什么价位更划算？含 2025 年后美国 de minimis 暂停、欧盟 IOSS 的实务影响。">
+<link rel="canonical" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/guides/direct-vs-fba/">
+<link rel="alternate" hreflang="zh-Hant" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/guides/direct-vs-fba/">
+<link rel="alternate" hreflang="zh-Hans" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/guides/direct-vs-fba/">
+<link rel="alternate" hreflang="x-default" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/guides/direct-vs-fba/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="跨境费用智库">
+<meta property="og:title" content="直发与 FBA 的成本分界：US$25 是这一代跨境卖家的门槛">
+<meta property="og:description" content="直发的运费与关税、FBA 的头程与配送费，哪一种在什么价位更划算？含 2025 年后美国 de minimis 暂停、欧盟 IOSS 的实务影响。">
+<meta property="og:url" content="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/guides/direct-vs-fba/">
+<meta property="og:locale" content="zh_Hans">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--ink:#111827;--ink2:#374151;--muted:#6b7280;--line:#e5e7eb;--bg:#ffffff;--bg2:#f9fafb;
+--accent:#b91c1c;--accent2:#dc2626;--accent-soft:#fef2f2;--green:#047857;--green-soft:#ecfdf5;
+--amber:#b45309;--amber-soft:#fffbeb;--radius:12px}
+@media (prefers-color-scheme:dark){:root{--ink:#e5e7eb;--ink2:#d1d5db;--muted:#9ca3af;--line:#1f2937;
+--bg:#0b1020;--bg2:#121a2e;--accent:#f87171;--accent2:#fca5a5;--accent-soft:#2b1113;--green:#34d399;
+--green-soft:#062e26;--amber:#fbbf24;--amber-soft:#2c2109}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans CJK SC","Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+header.site{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:16px;height:auto;min-height:60px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.logo{font-weight:800;font-size:1.02rem;color:var(--ink);white-space:nowrap}
+.logo span{color:var(--accent)}
+header.site nav{display:flex;gap:14px;font-size:.88rem;overflow-x:auto;flex:1}
+header.site nav a{color:var(--ink2);white-space:nowrap}
+.lang{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.lang a{padding:2px 6px;border:1px solid var(--line);border-radius:6px;color:var(--ink2)}
+.lang a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:#fff;font-weight:650;font-size:.9rem}
+.btn:hover{text-decoration:none;filter:brightness(1.1)}
+.btn.small{padding:7px 12px;font-size:.82rem}
+main{padding:30px 0 56px}
+h1{font-size:clamp(1.55rem,3.3vw,2.3rem);line-height:1.28;letter-spacing:-.01em;margin:.25em 0 .5em}
+h2{font-size:clamp(1.15rem,2.1vw,1.45rem);margin:2em 0 .5em;line-height:1.35}
+h3{font-size:1.02rem;margin:1.5em 0 .35em}
+p{color:var(--ink2);margin:.65em 0}
+.lede{font-size:1.05rem;color:var(--ink2);max-width:76ch}
+.crumb{font-size:.8rem;color:var(--muted);margin-bottom:6px}
+.crumb a{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.stat .k{font-size:.75rem;color:var(--muted);font-weight:650}
+.stat .v{font-size:1.45rem;font-weight:800;margin-top:2px;letter-spacing:-.01em}
+.stat .s{font-size:.78rem;color:var(--muted)}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:14px 0}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--bg2);font-size:.76rem;color:var(--muted);font-weight:650}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.best td{background:var(--green-soft)}
+.tag{display:inline-block;font-size:.72rem;font-weight:650;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tag.g{background:var(--green-soft);color:var(--green)}
+.tag.a{background:var(--amber-soft);color:var(--amber)}
+.note{background:var(--amber-soft);border:1px solid color-mix(in srgb,var(--amber) 28%,transparent);border-radius:var(--radius);padding:13px 15px;font-size:.88rem;color:var(--ink2);margin:18px 0}
+.adslot{margin:26px 0;min-height:92px;border:1px dashed var(--line);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.72rem;letter-spacing:.14em;background:var(--bg2)}
+.cta{background:linear-gradient(135deg,#b91c1c,#111827);color:#fff;border-radius:16px;padding:26px 24px;margin:32px 0}
+.cta h2{color:#fff;margin:.1em 0 .3em;font-size:1.3rem}
+.cta p{color:#e5e7eb;margin:.3em 0 .9em;font-size:.92rem}
+.cta .btn{background:#fff;color:#111827}
+.cta .fine{font-size:.76rem;color:#d1d5db;margin:10px 0 0}
+.gridlinks{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:11px;margin:16px 0}
+.gridlinks a{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:13px 15px;color:var(--ink)}
+.gridlinks a:hover{border-color:var(--accent);text-decoration:none}
+.gridlinks .t{font-weight:650;font-size:.92rem}
+.gridlinks .d{font-size:.8rem;color:var(--muted);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0}
+.chips a{font-size:.81rem;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--ink2);background:var(--bg2)}
+.chips a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+form.calc{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:18px 0}
+form.calc label{display:block;font-size:.8rem;font-weight:650;color:var(--ink2);margin:9px 0 4px}
+form.calc input,form.calc select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:.95rem}
+form.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){form.calc .row{grid-template-columns:1fr}}
+.bar{height:8px;background:var(--accent);border-radius:4px;display:block}
+.barrow{display:grid;grid-template-columns:150px 1fr 84px;gap:9px;align-items:center;font-size:.8rem;margin:5px 0}
+@media(max-width:560px){.barrow{grid-template-columns:104px 1fr 72px;font-size:.76rem}}
+footer.site{border-top:1px solid var(--line);padding:28px 0 44px;font-size:.84rem;color:var(--muted)}
+footer.site a{color:var(--ink2)}
+footer.site .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:16px}
+footer.site strong{display:block;color:var(--ink);font-size:.8rem;margin-bottom:5px}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site li{margin:2px 0}
+small.fine{display:block;margin-top:9px;color:var(--muted);font-size:.76rem;line-height:1.6}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "name": "直发与 FBA 的成本分界：US$25 是这一代跨境卖家的门槛", "description": "直发的运费与关税、FBA 的头程与配送费，哪一种在什么价位更划算？含 2025 年后美国 de minimis 暂停、欧盟 IOSS 的实务影响。", "url": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/guides/direct-vs-fba/", "dateModified": "2026-11-17", "inLanguage": "zh-Hans", "isPartOf": {"@type": "WebSite", "name": "跨境费用智库", "url": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "指南", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/guides/"}, {"@type": "ListItem", "position": 3, "name": "直发还是 FBA／海外仓", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/guides/direct-vs-fba/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "直发还是 FBA／海外仓要怎么开始？", "acceptedAnswer": {"@type": "Answer", "text": "直发的优点是不用备货、不用仓租，缺点是每单都要付一次国际运费（小包 US$3–6），时效 7–20 天，退货几乎等于放弃商品。US$10 的商品，US$4 的直发运费就是 40%，再加关税与平台费，几乎不可能有利润。"}}, {"@type": "Question", "name": "这些数字包含商品成本吗？", "acceptedAnswer": {"@type": "Answer", "text": "章节内的表格除非另有标注，只扣平台费；需要放进商品成本与广告费时，请用计算机把成本与广告费填进去。"}}]}</script>
+
+</head>
+<body><header class="site"><div class="wrap">
+<a class="logo" href="../../../zh-hans/">跨境费用智库<span>·手续费</span></a>
+<nav>
+<a href="../../../zh-hans/fees/">平台</a>
+<a href="../../../zh-hans/calculator/">计算机</a>
+<a href="../../../zh-hans/compare/">比较</a>
+<a href="../../../zh-hans/best/">依品类</a>
+<a href="../../../zh-hans/guides/">指南</a>
+<a href="../../../zh-hans/methodology/">费率与来源</a>
+</nav>
+<span class="lang"><a class="" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/guides/direct-vs-fba/">繁</a><a class="on" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/guides/direct-vs-fba/">简</a></span>
+<a class="btn small" href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">ROAS 模板 · US$24</a>
+</div></header><main><div class="wrap">
+<div class="crumb"><a href="../../../zh-hans/">首页</a> › <a href="../../../zh-hans/guides/">指南</a> › 直发还是 FBA／海外仓</div>
+<h1>直发与 FBA 的成本分界：US$25 是这一代跨境卖家的门槛</h1>
+<p class="lede">直发的运费与关税、FBA 的头程与配送费，哪一种在什么价位更划算？含 2025 年后美国 de minimis 暂停、欧盟 IOSS 的实务影响。</p>
+
+<h2>直发：便宜在起步，贵在每一单</h2><p>直发的优点是不用备货、不用仓租，缺点是每单都要付一次国际运费（小包 US$3–6），时效 7–20 天，退货几乎等于放弃商品。US$10 的商品，US$4 的直发运费就是 40%，再加关税与平台费，几乎不可能有利润。</p><p>美国自 2025 年起暂停小额免税（de minimis）待遇，低价直发包裹可能被课征关税，这一项在 2024 年之前的模型里几乎不存在，现在必须算进去。欧盟的 IOSS 让 150 欧元以下可由平台代收 VAT，但卖家仍要确认平台是否代扣。</p><h2>FBA／海外仓：贵在起步，便宜在每一单</h2><p>FBA 要先把货送到美国（头程海运每公斤 US$1–2、空运 US$4–6），再付配送费与仓储费，但每一单的边际物流成本固定且可预测，时效 2–3 天，退货可以重新上架。US$25 以上、月销 100 件以上的商品，FBA 的总成本通常低于直发。</p><p>分界点可以自己算：把“直发每单运费 + 关税”与“头程摊提 + FBA 配送费 + 仓储”放在同一张表比，月销量越高，FBA 越有利。本站的计算机把 FBA 配送费与月费摊提都放在模型里，切换平台就能看到差距。</p>
+<div class="adslot" aria-hidden="true">广告</div>
+<h2>常见问题</h2>
+<h3>直发还是 FBA／海外仓要怎么开始？</h3><p>直发的优点是不用备货、不用仓租，缺点是每单都要付一次国际运费（小包 US$3–6），时效 7–20 天，退货几乎等于放弃商品。US$10 的商品，US$4 的直发运费就是 40%，再加关税与平台费，几乎不可能有利润。</p><h3>这些数字包含商品成本吗？</h3><p>章节内的表格除非另有标注，只扣平台费；需要放进商品成本与广告费时，请用计算机把成本与广告费填进去。</p>
+<div class="adslot" aria-hidden="true">广告</div>
+<div class="cta">
+<h2>把这一页的算法搬进 Excel，换成你自己的数字</h2>
+<p><strong>跨境电商利润与广告 ROAS 核算模板（繁简双语 Excel）</strong>是本站的 Excel 版：12 个平台的费用对照、FBA 与直发的物流关税模型、损益两平 ROAS 与可付广告费上限、30 个 SKU 的获利分级、组合折扣模拟，以及一页式的月度结算表。</p>
+<a class="btn" href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">取得模板 — US$24（优惠码 LAUNCH25 折 25% → US$18）</a>
+<p class="fine">立即下载 · Excel .xlsx，可用 Excel、Google Sheets、LibreOffice 开启 · 一次购买永久使用。</p>
+</div>
+<p><a href="../../../zh-hans/guides/">← 所有指南</a> · <a href="../../../zh-hans/calculator/">计算机</a> · <a href="../../../zh-hans/fees/">平台费率</a></p>
+</div></main><footer class="site"><div class="wrap">
+<div class="cols">
+<div><strong>跨境费用智库</strong>
+华语跨境卖家的平台费、实拿与 ROAS 试算。免注册、免追踪、无外部字型。<br>
+<a href="../../../zh-hans/calculator/">→ 手续费与损益两平 ROAS 计算机</a></div>
+<div><strong>主要平台</strong><ul>
+<li><a href="../../../zh-hans/fees/shopee-tw/">虾皮购物（台湾）</a> · <a href="../../../zh-hans/fees/shopee-sg/">Shopee 新加坡</a></li>
+<li><a href="../../../zh-hans/fees/amazon-fba/">Amazon FBA</a> · <a href="../../../zh-hans/fees/tiktok-shop/">TikTok Shop</a></li>
+<li><a href="../../../zh-hans/fees/etsy/">Etsy</a> · <a href="../../../zh-hans/fees/shopify/">Shopify</a></li>
+<li><a href="../../../zh-hans/fees/">全部 12 个平台 →</a></li></ul></div>
+<div><strong>工具与模板</strong><ul>
+<li><a href="../../../zh-hans/calculator/">费用与实拿计算机</a></li>
+<li><a href="../../../zh-hans/compare/">平台一对一比较</a></li>
+<li><a href="../../../zh-hans/best/">依品类选平台</a></li>
+<li><a href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">利润与 ROAS 核算模板（US$24）</a></li></ul></div>
+</div>
+<p><small class="fine">费率取自各平台官方费率页，查核日 2026年11月17日（美元售价、单件订单、不含广告与促销）。平台费率随时调整，定价前请以官方页面为准。与任何平台均无合作关系；数字为比较用的估算，非税务或会计建议。</small></p>
+<p><small class="fine">© 2026 跨境费用智库 · <a href="../../../zh-hans/methodology/">费率来源与计算方法</a></small></p>
+</div></footer>
+</body></html>

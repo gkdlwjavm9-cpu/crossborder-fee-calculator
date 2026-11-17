@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>從目標淨利回推售價：跨境賣家的三步定價法</title>
+<meta name="description" content="先用平台費與金流費算出實拿，再從目標淨利率回推售價。含 12 個平台在 US$50 售價下、達到 30% 淨利所需的價格。">
+<link rel="canonical" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/guides/pricing-to-target/">
+<link rel="alternate" hreflang="zh-Hant" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/guides/pricing-to-target/">
+<link rel="alternate" hreflang="zh-Hans" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/guides/pricing-to-target/">
+<link rel="alternate" hreflang="x-default" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/guides/pricing-to-target/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="跨境費用智庫">
+<meta property="og:title" content="從目標淨利回推售價：跨境賣家的三步定價法">
+<meta property="og:description" content="先用平台費與金流費算出實拿，再從目標淨利率回推售價。含 12 個平台在 US$50 售價下、達到 30% 淨利所需的價格。">
+<meta property="og:url" content="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/guides/pricing-to-target/">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--ink:#111827;--ink2:#374151;--muted:#6b7280;--line:#e5e7eb;--bg:#ffffff;--bg2:#f9fafb;
+--accent:#b91c1c;--accent2:#dc2626;--accent-soft:#fef2f2;--green:#047857;--green-soft:#ecfdf5;
+--amber:#b45309;--amber-soft:#fffbeb;--radius:12px}
+@media (prefers-color-scheme:dark){:root{--ink:#e5e7eb;--ink2:#d1d5db;--muted:#9ca3af;--line:#1f2937;
+--bg:#0b1020;--bg2:#121a2e;--accent:#f87171;--accent2:#fca5a5;--accent-soft:#2b1113;--green:#34d399;
+--green-soft:#062e26;--amber:#fbbf24;--amber-soft:#2c2109}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans CJK SC","Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+header.site{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:16px;height:auto;min-height:60px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.logo{font-weight:800;font-size:1.02rem;color:var(--ink);white-space:nowrap}
+.logo span{color:var(--accent)}
+header.site nav{display:flex;gap:14px;font-size:.88rem;overflow-x:auto;flex:1}
+header.site nav a{color:var(--ink2);white-space:nowrap}
+.lang{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.lang a{padding:2px 6px;border:1px solid var(--line);border-radius:6px;color:var(--ink2)}
+.lang a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:#fff;font-weight:650;font-size:.9rem}
+.btn:hover{text-decoration:none;filter:brightness(1.1)}
+.btn.small{padding:7px 12px;font-size:.82rem}
+main{padding:30px 0 56px}
+h1{font-size:clamp(1.55rem,3.3vw,2.3rem);line-height:1.28;letter-spacing:-.01em;margin:.25em 0 .5em}
+h2{font-size:clamp(1.15rem,2.1vw,1.45rem);margin:2em 0 .5em;line-height:1.35}
+h3{font-size:1.02rem;margin:1.5em 0 .35em}
+p{color:var(--ink2);margin:.65em 0}
+.lede{font-size:1.05rem;color:var(--ink2);max-width:76ch}
+.crumb{font-size:.8rem;color:var(--muted);margin-bottom:6px}
+.crumb a{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.stat .k{font-size:.75rem;color:var(--muted);font-weight:650}
+.stat .v{font-size:1.45rem;font-weight:800;margin-top:2px;letter-spacing:-.01em}
+.stat .s{font-size:.78rem;color:var(--muted)}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:14px 0}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--bg2);font-size:.76rem;color:var(--muted);font-weight:650}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.best td{background:var(--green-soft)}
+.tag{display:inline-block;font-size:.72rem;font-weight:650;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tag.g{background:var(--green-soft);color:var(--green)}
+.tag.a{background:var(--amber-soft);color:var(--amber)}
+.note{background:var(--amber-soft);border:1px solid color-mix(in srgb,var(--amber) 28%,transparent);border-radius:var(--radius);padding:13px 15px;font-size:.88rem;color:var(--ink2);margin:18px 0}
+.adslot{margin:26px 0;min-height:92px;border:1px dashed var(--line);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.72rem;letter-spacing:.14em;background:var(--bg2)}
+.cta{background:linear-gradient(135deg,#b91c1c,#111827);color:#fff;border-radius:16px;padding:26px 24px;margin:32px 0}
+.cta h2{color:#fff;margin:.1em 0 .3em;font-size:1.3rem}
+.cta p{color:#e5e7eb;margin:.3em 0 .9em;font-size:.92rem}
+.cta .btn{background:#fff;color:#111827}
+.cta .fine{font-size:.76rem;color:#d1d5db;margin:10px 0 0}
+.gridlinks{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:11px;margin:16px 0}
+.gridlinks a{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:13px 15px;color:var(--ink)}
+.gridlinks a:hover{border-color:var(--accent);text-decoration:none}
+.gridlinks .t{font-weight:650;font-size:.92rem}
+.gridlinks .d{font-size:.8rem;color:var(--muted);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0}
+.chips a{font-size:.81rem;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--ink2);background:var(--bg2)}
+.chips a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+form.calc{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:18px 0}
+form.calc label{display:block;font-size:.8rem;font-weight:650;color:var(--ink2);margin:9px 0 4px}
+form.calc input,form.calc select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:.95rem}
+form.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){form.calc .row{grid-template-columns:1fr}}
+.bar{height:8px;background:var(--accent);border-radius:4px;display:block}
+.barrow{display:grid;grid-template-columns:150px 1fr 84px;gap:9px;align-items:center;font-size:.8rem;margin:5px 0}
+@media(max-width:560px){.barrow{grid-template-columns:104px 1fr 72px;font-size:.76rem}}
+footer.site{border-top:1px solid var(--line);padding:28px 0 44px;font-size:.84rem;color:var(--muted)}
+footer.site a{color:var(--ink2)}
+footer.site .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:16px}
+footer.site strong{display:block;color:var(--ink);font-size:.8rem;margin-bottom:5px}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site li{margin:2px 0}
+small.fine{display:block;margin-top:9px;color:var(--muted);font-size:.76rem;line-height:1.6}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "name": "從目標淨利回推售價：跨境賣家的三步定價法", "description": "先用平台費與金流費算出實拿，再從目標淨利率回推售價。含 12 個平台在 US$50 售價下、達到 30% 淨利所需的價格。", "url": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/guides/pricing-to-target/", "dateModified": "2026-11-17", "inLanguage": "zh-Hant", "isPartOf": {"@type": "WebSite", "name": "跨境費用智庫", "url": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/"}, {"@type": "ListItem", "position": 2, "name": "指南", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/guides/"}, {"@type": "ListItem", "position": 3, "name": "從目標淨利回推售價", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/guides/pricing-to-target/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "從目標淨利回推售價要怎麼開始？", "acceptedAnswer": {"@type": "Answer", "text": "成本加成（成本 × 2 或 × 2.5）在本地零售管用，在跨境電商會失準，因為平台費不是固定比例：固定費（上架費、每筆費、配送費、月費攤提）在低單價時占比極高，在職單價時幾乎消失。同一套加成邏輯，會讓 US$10 的商品虧錢、US$200 的商品少賺。"}}, {"@type": "Question", "name": "這些數字包含商品成本嗎？", "acceptedAnswer": {"@type": "Answer", "text": "章節內的表格除非另有標註，只扣平台費；需要放進商品成本與廣告費時，請用計算機把成本與廣告費填進去。"}}]}</script>
+
+</head>
+<body><header class="site"><div class="wrap">
+<a class="logo" href="../../">跨境費用智庫<span>·手續費</span></a>
+<nav>
+<a href="../../fees/">平台</a>
+<a href="../../calculator/">計算機</a>
+<a href="../../compare/">比較</a>
+<a href="../../best/">依品類</a>
+<a href="../../guides/">指南</a>
+<a href="../../methodology/">費率與來源</a>
+</nav>
+<span class="lang"><a class="on" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/guides/pricing-to-target/">繁</a><a class="" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/guides/pricing-to-target/">简</a></span>
+<a class="btn small" href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">ROAS 模板 · US$24</a>
+</div></header><main><div class="wrap">
+<div class="crumb"><a href="../../">首頁</a> › <a href="../../guides/">指南</a> › 從目標淨利回推售價</div>
+<h1>從目標淨利回推售價：跨境賣家的三步定價法</h1>
+<p class="lede">先用平台費與金流費算出實拿，再從目標淨利率回推售價。含 12 個平台在 US$50 售價下、達到 30% 淨利所需的價格。</p>
+<h2>達到 30% 淨利所需的售價（12 個平台）</h2><p>下表把「US$50 售價實拿多少」與「要拿到 30% 淨利，售價得定到多少」並列。淨利指扣掉平台費之後、扣商品成本與廣告費之前；商品成本 30%、月費以 200 單攤提。</p><div class="tablewrap"><table><thead><tr><th class="">平台</th><th class="num">US$50 實拿</th><th class="num">達到 30% 淨利所需售價</th><th class="num">約當新台幣</th><th class="num">該售價下的淨利率</th></tr></thead><tbody><tr><td class=""><a href="../../fees/shopify/">Shopify</a></td><td class="num">US$47.05</td><td class="num">US$0.78</td><td class="num">NT$20</td><td class="num">30.8%</td></tr><tr><td class=""><a href="../../fees/paypal/">PayPal</a></td><td class="num">US$47.01</td><td class="num">US$0.76</td><td class="num">NT$20</td><td class="num">30.3%</td></tr><tr><td class=""><a href="../../fees/tiktok-shop/">TikTok Shop</a></td><td class="num">US$47.00</td><td class="num">US$0.50</td><td class="num">NT$20</td><td class="num">94.0%</td></tr><tr><td class=""><a href="../../fees/stripe/">Stripe</a></td><td class="num">US$47.00</td><td class="num">US$0.50</td><td class="num">NT$20</td><td class="num">36.0%</td></tr><tr><td class=""><a href="../../fees/lemon-squeezy/">Lemon Squeezy</a></td><td class="num">US$46.25</td><td class="num">US$0.79</td><td class="num">NT$30</td><td class="num">30.4%</td></tr><tr><td class=""><a href="../../fees/etsy/">Etsy</a></td><td class="num">US$44.80</td><td class="num">US$0.75</td><td class="num">NT$20</td><td class="num">30.7%</td></tr><tr><td class=""><a href="../../fees/shopee-tw/">蝦皮購物（台灣站）</a></td><td class="num">US$42.92</td><td class="num">US$0.50</td><td class="num">NT$20</td><td class="num">70.0%</td></tr><tr><td class=""><a href="../../fees/ebay/">eBay</a></td><td class="num">US$42.80</td><td class="num">US$0.72</td><td class="num">NT$20</td><td class="num">30.6%</td></tr><tr><td class=""><a href="../../fees/gumroad/">Gumroad</a></td><td class="num">US$42.75</td><td class="num">US$1.40</td><td class="num">NT$40</td><td class="num">30.0%</td></tr><tr><td class=""><a href="../../fees/walmart/">Walmart Marketplace</a></td><td class="num">US$42.50</td><td class="num">US$0.50</td><td class="num">NT$20</td><td class="num">84.0%</td></tr><tr><td class=""><a href="../../fees/shopee-sg/">Shopee 新加坡站</a></td><td class="num">US$41.27</td><td class="num">US$0.50</td><td class="num">NT$20</td><td class="num">82.0%</td></tr><tr><td class=""><a href="../../fees/amazon-fba/">Amazon FBA</a></td><td class="num">US$38.15</td><td class="num">US$7.92</td><td class="num">NT$250</td><td class="num">30.1%</td></tr></tbody></table></div>
+<h2>為什麼「成本加成」定價在跨境行不通</h2><p>成本加成（成本 × 2 或 × 2.5）在本地零售管用，在跨境電商會失準，因為平台費不是固定比例：固定費（上架費、每筆費、配送費、月費攤提）在低單價時占比極高，在職單價時幾乎消失。同一套加成邏輯，會讓 US$10 的商品虧錢、US$200 的商品少賺。</p><p>正確的順序是：先決定你要的淨利率，再回推售價，最後才檢查這個價格在市上有沒有競爭力。</p><h2>三步：算出實拿、回推售價、檢查可行</h2><p>第一步，用本站的計算機把「平台費」與「實拿」算出來。第二步，用淨利率回推售價：售價 = 實拿 ÷（1 − 目標淨利率）的近似解，因為平台費本身也隨售價變動，建議直接看下面這張表。第三步，把回推出來的價格丟回平台搜尋，看同類商品前十名的價格帶；如果市場價格低於你的必要售價，問題在商品成本或渠道選擇，不在定價技巧。</p>
+<div class="adslot" aria-hidden="true">廣告</div>
+<h2>常見問題</h2>
+<h3>從目標淨利回推售價要怎麼開始？</h3><p>成本加成（成本 × 2 或 × 2.5）在本地零售管用，在跨境電商會失準，因為平台費不是固定比例：固定費（上架費、每筆費、配送費、月費攤提）在低單價時占比極高，在職單價時幾乎消失。同一套加成邏輯，會讓 US$10 的商品虧錢、US$200 的商品少賺。</p><h3>這些數字包含商品成本嗎？</h3><p>章節內的表格除非另有標註，只扣平台費；需要放進商品成本與廣告費時，請用計算機把成本與廣告費填進去。</p>
+<div class="adslot" aria-hidden="true">廣告</div>
+<div class="cta">
+<h2>把這一頁的算法搬進 Excel，換成你自己的數字</h2>
+<p><strong>跨境電商利潤與廣告 ROAS 核算模板（繁簡雙語 Excel）</strong>是本站的 Excel 版：12 個平台的費用對照、FBA 與直發的物流關稅模型、損益兩平 ROAS 與可付廣告費上限、30 個 SKU 的獲利分級、組合折扣模擬，以及一頁式的月度結算表。</p>
+<a class="btn" href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">取得模板 — US$24（優惠碼 LAUNCH25 折 25% → US$18）</a>
+<p class="fine">立即下載 · Excel .xlsx，可用 Excel、Google Sheets、LibreOffice 開啟 · 一次購買永久使用。</p>
+</div>
+<p><a href="../../guides/">← 所有指南</a> · <a href="../../calculator/">計算機</a> · <a href="../../fees/">平台費率</a></p>
+</div></main><footer class="site"><div class="wrap">
+<div class="cols">
+<div><strong>跨境費用智庫</strong>
+華語跨境賣家的平台費、實拿與 ROAS 試算。免註冊、免追蹤、無外部字型。<br>
+<a href="../../calculator/">→ 手續費與損益兩平 ROAS 計算機</a></div>
+<div><strong>主要平台</strong><ul>
+<li><a href="../../fees/shopee-tw/">蝦皮購物（台灣）</a> · <a href="../../fees/shopee-sg/">Shopee 新加坡</a></li>
+<li><a href="../../fees/amazon-fba/">Amazon FBA</a> · <a href="../../fees/tiktok-shop/">TikTok Shop</a></li>
+<li><a href="../../fees/etsy/">Etsy</a> · <a href="../../fees/shopify/">Shopify</a></li>
+<li><a href="../../fees/">全部 12 個平台 →</a></li></ul></div>
+<div><strong>工具與模板</strong><ul>
+<li><a href="../../calculator/">費用與實拿計算機</a></li>
+<li><a href="../../compare/">平台一對一比較</a></li>
+<li><a href="../../best/">依品類選平台</a></li>
+<li><a href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">利潤與 ROAS 核算模板（US$24）</a></li></ul></div>
+</div>
+<p><small class="fine">費率取自各平台官方費率頁，查核日 2026年11月17日（美元售價、單件訂單、不含廣告與促銷）。平台費率隨時調整，定價前請以官方頁面為準。與任何平台均無合作關係；數字為比較用的估算，非稅務或會計建議。</small></p>
+<p><small class="fine">© 2026 跨境費用智庫 · <a href="../../methodology/">費率來源與計算方法</a></small></p>
+</div></footer>
+</body></html>

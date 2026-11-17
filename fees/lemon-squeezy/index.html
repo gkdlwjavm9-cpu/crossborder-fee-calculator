@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lemon Squeezy 手續費 2026：費率結構、12 個價位的實拿與 ROAS</title>
+<meta name="description" content="Lemon Squeezy 的完整費用結構：平台費 5%（含金流與稅務）、每筆固定費 US$0.50、非美國買家附加 1.5%。US$10–500 共 12 個價位的平台費、有效費率、實拿與損益兩平 ROAS 一次列出，查核日 2026-11-11。">
+<link rel="canonical" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/fees/lemon-squeezy/">
+<link rel="alternate" hreflang="zh-Hant" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/fees/lemon-squeezy/">
+<link rel="alternate" hreflang="zh-Hans" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/fees/lemon-squeezy/">
+<link rel="alternate" hreflang="x-default" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/fees/lemon-squeezy/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="跨境費用智庫">
+<meta property="og:title" content="Lemon Squeezy 手續費 2026：費率結構、12 個價位的實拿與 ROAS">
+<meta property="og:description" content="Lemon Squeezy 的完整費用結構：平台費 5%（含金流與稅務）、每筆固定費 US$0.50、非美國買家附加 1.5%。US$10–500 共 12 個價位的平台費、有效費率、實拿與損益兩平 ROAS 一次列出，查核日 2026-11-11。">
+<meta property="og:url" content="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/fees/lemon-squeezy/">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--ink:#111827;--ink2:#374151;--muted:#6b7280;--line:#e5e7eb;--bg:#ffffff;--bg2:#f9fafb;
+--accent:#b91c1c;--accent2:#dc2626;--accent-soft:#fef2f2;--green:#047857;--green-soft:#ecfdf5;
+--amber:#b45309;--amber-soft:#fffbeb;--radius:12px}
+@media (prefers-color-scheme:dark){:root{--ink:#e5e7eb;--ink2:#d1d5db;--muted:#9ca3af;--line:#1f2937;
+--bg:#0b1020;--bg2:#121a2e;--accent:#f87171;--accent2:#fca5a5;--accent-soft:#2b1113;--green:#34d399;
+--green-soft:#062e26;--amber:#fbbf24;--amber-soft:#2c2109}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans CJK SC","Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+header.site{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:16px;height:auto;min-height:60px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.logo{font-weight:800;font-size:1.02rem;color:var(--ink);white-space:nowrap}
+.logo span{color:var(--accent)}
+header.site nav{display:flex;gap:14px;font-size:.88rem;overflow-x:auto;flex:1}
+header.site nav a{color:var(--ink2);white-space:nowrap}
+.lang{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.lang a{padding:2px 6px;border:1px solid var(--line);border-radius:6px;color:var(--ink2)}
+.lang a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:#fff;font-weight:650;font-size:.9rem}
+.btn:hover{text-decoration:none;filter:brightness(1.1)}
+.btn.small{padding:7px 12px;font-size:.82rem}
+main{padding:30px 0 56px}
+h1{font-size:clamp(1.55rem,3.3vw,2.3rem);line-height:1.28;letter-spacing:-.01em;margin:.25em 0 .5em}
+h2{font-size:clamp(1.15rem,2.1vw,1.45rem);margin:2em 0 .5em;line-height:1.35}
+h3{font-size:1.02rem;margin:1.5em 0 .35em}
+p{color:var(--ink2);margin:.65em 0}
+.lede{font-size:1.05rem;color:var(--ink2);max-width:76ch}
+.crumb{font-size:.8rem;color:var(--muted);margin-bottom:6px}
+.crumb a{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.stat .k{font-size:.75rem;color:var(--muted);font-weight:650}
+.stat .v{font-size:1.45rem;font-weight:800;margin-top:2px;letter-spacing:-.01em}
+.stat .s{font-size:.78rem;color:var(--muted)}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:14px 0}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--bg2);font-size:.76rem;color:var(--muted);font-weight:650}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.best td{background:var(--green-soft)}
+.tag{display:inline-block;font-size:.72rem;font-weight:650;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tag.g{background:var(--green-soft);color:var(--green)}
+.tag.a{background:var(--amber-soft);color:var(--amber)}
+.note{background:var(--amber-soft);border:1px solid color-mix(in srgb,var(--amber) 28%,transparent);border-radius:var(--radius);padding:13px 15px;font-size:.88rem;color:var(--ink2);margin:18px 0}
+.adslot{margin:26px 0;min-height:92px;border:1px dashed var(--line);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.72rem;letter-spacing:.14em;background:var(--bg2)}
+.cta{background:linear-gradient(135deg,#b91c1c,#111827);color:#fff;border-radius:16px;padding:26px 24px;margin:32px 0}
+.cta h2{color:#fff;margin:.1em 0 .3em;font-size:1.3rem}
+.cta p{color:#e5e7eb;margin:.3em 0 .9em;font-size:.92rem}
+.cta .btn{background:#fff;color:#111827}
+.cta .fine{font-size:.76rem;color:#d1d5db;margin:10px 0 0}
+.gridlinks{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:11px;margin:16px 0}
+.gridlinks a{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:13px 15px;color:var(--ink)}
+.gridlinks a:hover{border-color:var(--accent);text-decoration:none}
+.gridlinks .t{font-weight:650;font-size:.92rem}
+.gridlinks .d{font-size:.8rem;color:var(--muted);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0}
+.chips a{font-size:.81rem;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--ink2);background:var(--bg2)}
+.chips a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+form.calc{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:18px 0}
+form.calc label{display:block;font-size:.8rem;font-weight:650;color:var(--ink2);margin:9px 0 4px}
+form.calc input,form.calc select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:.95rem}
+form.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){form.calc .row{grid-template-columns:1fr}}
+.bar{height:8px;background:var(--accent);border-radius:4px;display:block}
+.barrow{display:grid;grid-template-columns:150px 1fr 84px;gap:9px;align-items:center;font-size:.8rem;margin:5px 0}
+@media(max-width:560px){.barrow{grid-template-columns:104px 1fr 72px;font-size:.76rem}}
+footer.site{border-top:1px solid var(--line);padding:28px 0 44px;font-size:.84rem;color:var(--muted)}
+footer.site a{color:var(--ink2)}
+footer.site .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:16px}
+footer.site strong{display:block;color:var(--ink);font-size:.8rem;margin-bottom:5px}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site li{margin:2px 0}
+small.fine{display:block;margin-top:9px;color:var(--muted);font-size:.76rem;line-height:1.6}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Lemon Squeezy 手續費 2026：費率結構、12 個價位的實拿與 ROAS", "description": "Lemon Squeezy 的完整費用結構：平台費 5%（含金流與稅務）、每筆固定費 US$0.50、非美國買家附加 1.5%。US$10–500 共 12 個價位的平台費、有效費率、實拿與損益兩平 ROAS 一次列出，查核日 2026-11-11。", "url": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/fees/lemon-squeezy/", "dateModified": "2026-11-17", "inLanguage": "zh-Hant", "isPartOf": {"@type": "WebSite", "name": "跨境費用智庫", "url": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/"}, {"@type": "ListItem", "position": 2, "name": "平台", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/fees/"}, {"@type": "ListItem", "position": 3, "name": "Lemon Squeezy", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/fees/lemon-squeezy/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Lemon Squeezy 的手續費怎麼算？", "acceptedAnswer": {"@type": "Answer", "text": "平台費 5%（含金流與稅務）；每筆固定費 US$0.50；非美國買家附加 1.5%。"}}, {"@type": "Question", "name": "Lemon Squeezy 賣一件 US$50 要付多少？", "acceptedAnswer": {"@type": "Answer", "text": "平台費 US$3.75，有效費率 7.5%，實拿 US$46.25（約 NT$1,480）。"}}, {"@type": "Question", "name": "Lemon Squeezy 適合什麼商品？", "acceptedAnswer": {"@type": "Answer", "text": "軟體、授權、訂閱制數位商品，不想自己申報 VAT／GST 的賣家。要特別注意的是：非美國買家加 1.5%、PayPal 加 1.5%、訂閱加 0.5%；Stripe 收購後費率可能再調整。"}}, {"@type": "Question", "name": "Lemon Squeezy 的費率還會變嗎？", "acceptedAnswer": {"@type": "Answer", "text": "會。本頁費率查核日為 2026-11-11，平台常在年中或檔期前調整；蝦皮台灣站已公告 2026/12/11 起再調整費率。定價前請以官方費率頁與你的賣家後台帳單為準。"}}]}</script>
+
+</head>
+<body><header class="site"><div class="wrap">
+<a class="logo" href="../../">跨境費用智庫<span>·手續費</span></a>
+<nav>
+<a href="../../fees/">平台</a>
+<a href="../../calculator/">計算機</a>
+<a href="../../compare/">比較</a>
+<a href="../../best/">依品類</a>
+<a href="../../guides/">指南</a>
+<a href="../../methodology/">費率與來源</a>
+</nav>
+<span class="lang"><a class="on" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/fees/lemon-squeezy/">繁</a><a class="" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/fees/lemon-squeezy/">简</a></span>
+<a class="btn small" href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">ROAS 模板 · US$24</a>
+</div></header><main><div class="wrap">
+<div class="crumb"><a href="../../">首頁</a> › <a href="../../fees/">平台</a> › Lemon Squeezy</div>
+<h1>Lemon Squeezy 手續費：5% + 50¢ 全包，並替你處理各國營業稅</h1>
+<p class="lede">以下是 Lemon Squeezy 在單件訂單、無廣告、無促銷條件下的完整費用結構。每個價位都有獨立的拆解頁，
+把固定費與百分比費分開列，並和同價位的其他 11 個平台比較。費率查核日 2026-11-11。</p>
+<div class="cards"><div class="stat"><div class="k">US$50 平台費</div><div class="v">US$3.75</div><div class="s">有效費率 7.5%</div></div><div class="stat"><div class="k">US$50 實拿</div><div class="v">US$46.25</div><div class="s">約 NT$1,480</div></div><div class="stat"><div class="k">US$50 損益兩平 ROAS</div><div class="v">1.60x</div><div class="s">商品成本 30%</div></div><div class="stat"><div class="k">費用項目</div><div class="v">3</div><div class="s">固定費與百分比費分開列</div></div></div>
+<h2>費用結構</h2>
+<div class="tablewrap"><table><thead><tr><th class="">費用項目</th><th class="">費率／金額</th><th class="">說明</th></tr></thead><tbody><tr><td class="">平台費 5%（含金流與稅務）</td><td class=""></td><td class=""></td></tr><tr><td class="">每筆固定費 US$0.50</td><td class=""></td><td class=""></td></tr><tr><td class="">非美國買家附加 1.5%</td><td class=""></td><td class=""></td></tr></tbody></table></div>
+<p>Lemon Squeezy 每筆收 5% + 50¢，金流與各國營業稅處理都含在裡面，並以 merchant of record 身分成為稅務上的銷售方——也就是說，VAT／GST 的申報與代繳由它負責。</p><p>附加費是費率變動的地方：非美國買家加 1.5%、PayPal 加 1.5%、訂閱付款加 0.5%。一件 US$29 賣給美國買家你拿 US$27.05；同樣一件賣給歐洲買家成本多 US$0.44。Stripe 已收購 Lemon Squeezy 並引導用戶轉向 Stripe Managed Payments，長期費率值得每季重看一次。</p>
+<div class="note"><strong>適用與注意：</strong>軟體、授權、訂閱制數位商品，不想自己申報 VAT／GST 的賣家。非美國買家加 1.5%、PayPal 加 1.5%、訂閱加 0.5%；Stripe 收購後費率可能再調整。</div>
+<div class="adslot" aria-hidden="true">廣告</div>
+<h2>12 個價位的實拿</h2>
+<p>同一個平台，售價越低、固定費占的比重越高；表格最後兩欄是扣掉平台費之後的實拿與損益兩平 ROAS（商品成本 30%）。</p>
+<div class="tablewrap"><table><thead><tr><th class="">售價</th><th class="num">約當新台幣</th><th class="num">平台費</th><th class="num">有效費率</th><th class="num">實拿</th><th class="num">損益兩平 ROAS</th></tr></thead><tbody><tr><td class=""><a href="../../fees/lemon-squeezy/10/">US$10</a></td><td class="num">NT$320</td><td class="num">US$1.15</td><td class="num">11.5%</td><td class="num">US$8.85</td><td class="num">1.71x</td></tr><tr><td class=""><a href="../../fees/lemon-squeezy/15/">US$15</a></td><td class="num">NT$480</td><td class="num">US$1.48</td><td class="num">9.9%</td><td class="num">US$13.52</td><td class="num">1.66x</td></tr><tr><td class=""><a href="../../fees/lemon-squeezy/20/">US$20</a></td><td class="num">NT$640</td><td class="num">US$1.80</td><td class="num">9.0%</td><td class="num">US$18.20</td><td class="num">1.64x</td></tr><tr><td class=""><a href="../../fees/lemon-squeezy/25/">US$25</a></td><td class="num">NT$800</td><td class="num">US$2.13</td><td class="num">8.5%</td><td class="num">US$22.87</td><td class="num">1.63x</td></tr><tr><td class=""><a href="../../fees/lemon-squeezy/30/">US$30</a></td><td class="num">NT$960</td><td class="num">US$2.45</td><td class="num">8.2%</td><td class="num">US$27.55</td><td class="num">1.62x</td></tr><tr><td class=""><a href="../../fees/lemon-squeezy/40/">US$40</a></td><td class="num">NT$1,280</td><td class="num">US$3.10</td><td class="num">7.8%</td><td class="num">US$36.90</td><td class="num">1.61x</td></tr><tr><td class=""><a href="../../fees/lemon-squeezy/50/">US$50</a></td><td class="num">NT$1,600</td><td class="num">US$3.75</td><td class="num">7.5%</td><td class="num">US$46.25</td><td class="num">1.60x</td></tr><tr><td class=""><a href="../../fees/lemon-squeezy/75/">US$75</a></td><td class="num">NT$2,400</td><td class="num">US$5.38</td><td class="num">7.2%</td><td class="num">US$69.62</td><td class="num">1.59x</td></tr><tr><td class=""><a href="../../fees/lemon-squeezy/100/">US$100</a></td><td class="num">NT$3,200</td><td class="num">US$7.00</td><td class="num">7.0%</td><td class="num">US$93.00</td><td class="num">1.59x</td></tr><tr><td class=""><a href="../../fees/lemon-squeezy/150/">US$150</a></td><td class="num">NT$4,800</td><td class="num">US$10.25</td><td class="num">6.8%</td><td class="num">US$139.75</td><td class="num">1.58x</td></tr><tr><td class=""><a href="../../fees/lemon-squeezy/250/">US$250</a></td><td class="num">NT$8,000</td><td class="num">US$16.75</td><td class="num">6.7%</td><td class="num">US$233.25</td><td class="num">1.58x</td></tr><tr><td class=""><a href="../../fees/lemon-squeezy/500/">US$500</a></td><td class="num">NT$16,000</td><td class="num">US$33.00</td><td class="num">6.6%</td><td class="num">US$467.00</td><td class="num">1.58x</td></tr></tbody></table></div>
+<div class="chips"><a href="../../fees/lemon-squeezy/10/">US$10 拆解</a><a href="../../fees/lemon-squeezy/15/">US$15 拆解</a><a href="../../fees/lemon-squeezy/20/">US$20 拆解</a><a href="../../fees/lemon-squeezy/25/">US$25 拆解</a><a href="../../fees/lemon-squeezy/30/">US$30 拆解</a><a href="../../fees/lemon-squeezy/40/">US$40 拆解</a><a href="../../fees/lemon-squeezy/50/">US$50 拆解</a><a href="../../fees/lemon-squeezy/75/">US$75 拆解</a><a href="../../fees/lemon-squeezy/100/">US$100 拆解</a><a href="../../fees/lemon-squeezy/150/">US$150 拆解</a><a href="../../fees/lemon-squeezy/250/">US$250 拆解</a><a href="../../fees/lemon-squeezy/500/">US$500 拆解</a></div>
+<h2>常見問題</h2>
+<h3>Lemon Squeezy 的手續費怎麼算？</h3><p>平台費 5%（含金流與稅務）；每筆固定費 US$0.50；非美國買家附加 1.5%。</p><h3>Lemon Squeezy 賣一件 US$50 要付多少？</h3><p>平台費 US$3.75，有效費率 7.5%，實拿 US$46.25（約 NT$1,480）。</p><h3>Lemon Squeezy 適合什麼商品？</h3><p>軟體、授權、訂閱制數位商品，不想自己申報 VAT／GST 的賣家。要特別注意的是：非美國買家加 1.5%、PayPal 加 1.5%、訂閱加 0.5%；Stripe 收購後費率可能再調整。</p><h3>Lemon Squeezy 的費率還會變嗎？</h3><p>會。本頁費率查核日為 2026-11-11，平台常在年中或檔期前調整；蝦皮台灣站已公告 2026/12/11 起再調整費率。定價前請以官方費率頁與你的賣家後台帳單為準。</p>
+<p><small class="fine">資料來源：<a href="https://www.lemonsqueezy.com/pricing" target="_blank" rel="noopener nofollow">https://www.lemonsqueezy.com/pricing</a>（查核日 2026-11-11）。</small></p>
+<div class="adslot" aria-hidden="true">廣告</div>
+<div class="cta">
+<h2>把這一頁的算法搬進 Excel，換成你自己的數字</h2>
+<p><strong>跨境電商利潤與廣告 ROAS 核算模板（繁簡雙語 Excel）</strong>是本站的 Excel 版：12 個平台的費用對照、FBA 與直發的物流關稅模型、損益兩平 ROAS 與可付廣告費上限、30 個 SKU 的獲利分級、組合折扣模擬，以及一頁式的月度結算表。</p>
+<a class="btn" href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">取得模板 — US$24（優惠碼 LAUNCH25 折 25% → US$18）</a>
+<p class="fine">立即下載 · Excel .xlsx，可用 Excel、Google Sheets、LibreOffice 開啟 · 一次購買永久使用。</p>
+</div>
+<p><a href="../../fees/">← 12 個平台總覽</a> · <a href="../../compare/">平台比較</a> · <a href="../../best/electronics/">依品類選平台</a></p>
+</div></main><footer class="site"><div class="wrap">
+<div class="cols">
+<div><strong>跨境費用智庫</strong>
+華語跨境賣家的平台費、實拿與 ROAS 試算。免註冊、免追蹤、無外部字型。<br>
+<a href="../../calculator/">→ 手續費與損益兩平 ROAS 計算機</a></div>
+<div><strong>主要平台</strong><ul>
+<li><a href="../../fees/shopee-tw/">蝦皮購物（台灣）</a> · <a href="../../fees/shopee-sg/">Shopee 新加坡</a></li>
+<li><a href="../../fees/amazon-fba/">Amazon FBA</a> · <a href="../../fees/tiktok-shop/">TikTok Shop</a></li>
+<li><a href="../../fees/etsy/">Etsy</a> · <a href="../../fees/shopify/">Shopify</a></li>
+<li><a href="../../fees/">全部 12 個平台 →</a></li></ul></div>
+<div><strong>工具與模板</strong><ul>
+<li><a href="../../calculator/">費用與實拿計算機</a></li>
+<li><a href="../../compare/">平台一對一比較</a></li>
+<li><a href="../../best/">依品類選平台</a></li>
+<li><a href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">利潤與 ROAS 核算模板（US$24）</a></li></ul></div>
+</div>
+<p><small class="fine">費率取自各平台官方費率頁，查核日 2026年11月17日（美元售價、單件訂單、不含廣告與促銷）。平台費率隨時調整，定價前請以官方頁面為準。與任何平台均無合作關係；數字為比較用的估算，非稅務或會計建議。</small></p>
+<p><small class="fine">© 2026 跨境費用智庫 · <a href="../../methodology/">費率來源與計算方法</a></small></p>
+</div></footer>
+</body></html>

@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手续费与损益两平 ROAS 计算机：12 个平台即时试算（华语跨境版）</title>
+<meta name="description" content="输入售价、每月订单数、商品成本百分比与广告预算，即时算出平台费、实拿、有效费率、贡献毛利、损益两平 ROAS、每笔可付广告费与需要几笔订单，并列出 12 个平台的实拿比较。">
+<link rel="canonical" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/calculator/">
+<link rel="alternate" hreflang="zh-Hant" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/calculator/">
+<link rel="alternate" hreflang="zh-Hans" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/calculator/">
+<link rel="alternate" hreflang="x-default" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/calculator/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="跨境费用智库">
+<meta property="og:title" content="手续费与损益两平 ROAS 计算机：12 个平台即时试算（华语跨境版）">
+<meta property="og:description" content="输入售价、每月订单数、商品成本百分比与广告预算，即时算出平台费、实拿、有效费率、贡献毛利、损益两平 ROAS、每笔可付广告费与需要几笔订单，并列出 12 个平台的实拿比较。">
+<meta property="og:url" content="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/calculator/">
+<meta property="og:locale" content="zh_Hans">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--ink:#111827;--ink2:#374151;--muted:#6b7280;--line:#e5e7eb;--bg:#ffffff;--bg2:#f9fafb;
+--accent:#b91c1c;--accent2:#dc2626;--accent-soft:#fef2f2;--green:#047857;--green-soft:#ecfdf5;
+--amber:#b45309;--amber-soft:#fffbeb;--radius:12px}
+@media (prefers-color-scheme:dark){:root{--ink:#e5e7eb;--ink2:#d1d5db;--muted:#9ca3af;--line:#1f2937;
+--bg:#0b1020;--bg2:#121a2e;--accent:#f87171;--accent2:#fca5a5;--accent-soft:#2b1113;--green:#34d399;
+--green-soft:#062e26;--amber:#fbbf24;--amber-soft:#2c2109}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans CJK SC","Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+header.site{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:16px;height:auto;min-height:60px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.logo{font-weight:800;font-size:1.02rem;color:var(--ink);white-space:nowrap}
+.logo span{color:var(--accent)}
+header.site nav{display:flex;gap:14px;font-size:.88rem;overflow-x:auto;flex:1}
+header.site nav a{color:var(--ink2);white-space:nowrap}
+.lang{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.lang a{padding:2px 6px;border:1px solid var(--line);border-radius:6px;color:var(--ink2)}
+.lang a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:#fff;font-weight:650;font-size:.9rem}
+.btn:hover{text-decoration:none;filter:brightness(1.1)}
+.btn.small{padding:7px 12px;font-size:.82rem}
+main{padding:30px 0 56px}
+h1{font-size:clamp(1.55rem,3.3vw,2.3rem);line-height:1.28;letter-spacing:-.01em;margin:.25em 0 .5em}
+h2{font-size:clamp(1.15rem,2.1vw,1.45rem);margin:2em 0 .5em;line-height:1.35}
+h3{font-size:1.02rem;margin:1.5em 0 .35em}
+p{color:var(--ink2);margin:.65em 0}
+.lede{font-size:1.05rem;color:var(--ink2);max-width:76ch}
+.crumb{font-size:.8rem;color:var(--muted);margin-bottom:6px}
+.crumb a{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.stat .k{font-size:.75rem;color:var(--muted);font-weight:650}
+.stat .v{font-size:1.45rem;font-weight:800;margin-top:2px;letter-spacing:-.01em}
+.stat .s{font-size:.78rem;color:var(--muted)}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:14px 0}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--bg2);font-size:.76rem;color:var(--muted);font-weight:650}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.best td{background:var(--green-soft)}
+.tag{display:inline-block;font-size:.72rem;font-weight:650;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tag.g{background:var(--green-soft);color:var(--green)}
+.tag.a{background:var(--amber-soft);color:var(--amber)}
+.note{background:var(--amber-soft);border:1px solid color-mix(in srgb,var(--amber) 28%,transparent);border-radius:var(--radius);padding:13px 15px;font-size:.88rem;color:var(--ink2);margin:18px 0}
+.adslot{margin:26px 0;min-height:92px;border:1px dashed var(--line);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.72rem;letter-spacing:.14em;background:var(--bg2)}
+.cta{background:linear-gradient(135deg,#b91c1c,#111827);color:#fff;border-radius:16px;padding:26px 24px;margin:32px 0}
+.cta h2{color:#fff;margin:.1em 0 .3em;font-size:1.3rem}
+.cta p{color:#e5e7eb;margin:.3em 0 .9em;font-size:.92rem}
+.cta .btn{background:#fff;color:#111827}
+.cta .fine{font-size:.76rem;color:#d1d5db;margin:10px 0 0}
+.gridlinks{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:11px;margin:16px 0}
+.gridlinks a{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:13px 15px;color:var(--ink)}
+.gridlinks a:hover{border-color:var(--accent);text-decoration:none}
+.gridlinks .t{font-weight:650;font-size:.92rem}
+.gridlinks .d{font-size:.8rem;color:var(--muted);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0}
+.chips a{font-size:.81rem;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--ink2);background:var(--bg2)}
+.chips a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+form.calc{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:18px 0}
+form.calc label{display:block;font-size:.8rem;font-weight:650;color:var(--ink2);margin:9px 0 4px}
+form.calc input,form.calc select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:.95rem}
+form.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){form.calc .row{grid-template-columns:1fr}}
+.bar{height:8px;background:var(--accent);border-radius:4px;display:block}
+.barrow{display:grid;grid-template-columns:150px 1fr 84px;gap:9px;align-items:center;font-size:.8rem;margin:5px 0}
+@media(max-width:560px){.barrow{grid-template-columns:104px 1fr 72px;font-size:.76rem}}
+footer.site{border-top:1px solid var(--line);padding:28px 0 44px;font-size:.84rem;color:var(--muted)}
+footer.site a{color:var(--ink2)}
+footer.site .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:16px}
+footer.site strong{display:block;color:var(--ink);font-size:.8rem;margin-bottom:5px}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site li{margin:2px 0}
+small.fine{display:block;margin-top:9px;color:var(--muted);font-size:.76rem;line-height:1.6}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "手续费与损益两平 ROAS 计算机：12 个平台即时试算（华语跨境版）", "description": "输入售价、每月订单数、商品成本百分比与广告预算，即时算出平台费、实拿、有效费率、贡献毛利、损益两平 ROAS、每笔可付广告费与需要几笔订单，并列出 12 个平台的实拿比较。", "url": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/calculator/", "dateModified": "2026-11-17", "inLanguage": "zh-Hans", "isPartOf": {"@type": "WebSite", "name": "跨境费用智库", "url": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "计算机", "item": "https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/calculator/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "损益两平 ROAS 是什么？", "acceptedAnswer": {"@type": "Answer", "text": "卖出一件商品、扣掉平台费与商品成本后剩下的钱（贡献毛利），要用多少倍的广告营收才能打平。公式是“售价 ÷ 贡献毛利”；ROAS 低于这个数字，广告就是在亏钱。"}}, {"@type": "Question", "name": "为什么同一件商品在不同平台算出来差这么多？", "acceptedAnswer": {"@type": "Answer", "text": "因为固定费与百分比费的比例不同。低单价时固定费主导（上架费、每笔费、配送费、月费摊提），高单价时百分比与佣金上限主导。计算机把两者分开算，所以你会看到某些平台在 US$10 特别贵、在 US$200 特别便宜。"}}, {"@type": "Question", "name": "月费是怎么摊的？", "acceptedAnswer": {"@type": "Answer", "text": "预设以每月 200 单摊提；把你的实际单量填进去，月费对每笔订单的影响就会跟著变。单量少时自建官网的固定成本会明显上升。"}}, {"@type": "Question", "name": "这些数字可以直接拿来报价吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以当基准，但要用你自己卖家后台的实际费率替换。品类费率、促销档期费率与退货率都会改变结果，虾皮台湾站 2026/12/11 起另有新制。"}}]}</script>
+
+</head>
+<body><header class="site"><div class="wrap">
+<a class="logo" href="../../zh-hans/">跨境费用智库<span>·手续费</span></a>
+<nav>
+<a href="../../zh-hans/fees/">平台</a>
+<a href="../../zh-hans/calculator/">计算机</a>
+<a href="../../zh-hans/compare/">比较</a>
+<a href="../../zh-hans/best/">依品类</a>
+<a href="../../zh-hans/guides/">指南</a>
+<a href="../../zh-hans/methodology/">费率与来源</a>
+</nav>
+<span class="lang"><a class="" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/calculator/">繁</a><a class="on" href="https://gkdlwjavm9-cpu.github.io/crossborder-fee-calculator/zh-hans/calculator/">简</a></span>
+<a class="btn small" href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">ROAS 模板 · US$24</a>
+</div></header><main><div class="wrap">
+<div class="crumb"><a href="../../zh-hans/">首页</a> › 计算机</div>
+<h1>手续费与损益两平 ROAS 计算机</h1>
+<p class="lede">选平台、填售价与成本，马上看到平台费、实拿、有效费率、贡献毛利、损益两平 ROAS，以及每个平台在同一个售价下的实拿比较。
+全部在浏览器里算，不上传、不追踪。</p>
+<div class="two" style="display:grid;grid-template-columns:1fr;gap:18px">
+<form class="calc" id="calc">
+<label for="plat">平台</label>
+<select id="plat"><option value="amazon-fba">Amazon FBA（综合电商平台）</option><option value="tiktok-shop">TikTok Shop（综合电商平台）</option><option value="shopee-tw">虾皮购物（台湾站）（亚洲平台）</option><option value="shopee-sg">Shopee 新加坡站（亚洲平台）</option><option value="shopify">Shopify（自建官网与收款）</option><option value="etsy">Etsy（综合电商平台）</option><option value="ebay">eBay（综合电商平台）</option><option value="walmart">Walmart Marketplace（综合电商平台）</option><option value="stripe">Stripe（自建官网与收款）</option><option value="paypal">PayPal（自建官网与收款）</option><option value="gumroad">Gumroad（数位商品）</option><option value="lemon-squeezy">Lemon Squeezy（数位商品）</option></select>
+<div class="row">
+<div><label for="price">售价（US$）</label><input id="price" type="number" min="1" step="1" value="50"></div>
+<div><label for="orders">每月订单数（摊提月费）</label><input id="orders" type="number" min="1" step="10" value="200"></div>
+</div>
+<div class="row">
+<div><label for="cogs">商品成本（售价的 %）</label><input id="cogs" type="number" min="0" max="95" step="1" value="30"></div>
+<div><label for="ads">每月广告预算（US$）</label><input id="ads" type="number" min="0" step="50" value="0"></div>
+</div>
+</form>
+<div class="cards" style="margin-top:0">
+<div class="stat"><div class="k">平台费</div><div class="v" id="o-fee">—</div><div class="s">含固定费与月费摊提</div></div>
+<div class="stat"><div class="k">实拿</div><div class="v" id="o-net">—</div><div class="s" id="o-nt">—</div></div>
+<div class="stat"><div class="k">有效费率</div><div class="v" id="o-eff">—</div><div class="s">平台费 ÷ 售价</div></div>
+<div class="stat"><div class="k">贡献毛利</div><div class="v" id="o-contrib">—</div><div class="s">扣平台费与商品成本</div></div>
+<div class="stat"><div class="k">损益两平 ROAS</div><div class="v" id="o-be">—</div><div class="s">低于此值即亏损</div></div>
+<div class="stat"><div class="k">每笔可付广告费</div><div class="v" id="o-cpa">—</div><div class="s">贡献毛利（上限）</div></div>
+<div class="stat"><div class="k">广告预算需几笔订单</div><div class="v" id="o-orders">—</div><div class="s">打平广告费所需</div></div>
+</div>
+</div>
+<h2>费用明细</h2>
+<div class="tablewrap"><table><tbody id="breakdown"><tr><td>—</td><td></td></tr></tbody></table></div>
+<div class="adslot" aria-hidden="true">广告</div>
+<h2>同一个售价，12 个平台的实拿</h2>
+<div id="compare"></div>
+<h2>常见问题</h2>
+<h3>损益两平 ROAS 是什么？</h3><p>卖出一件商品、扣掉平台费与商品成本后剩下的钱（贡献毛利），要用多少倍的广告营收才能打平。公式是“售价 ÷ 贡献毛利”；ROAS 低于这个数字，广告就是在亏钱。</p><h3>为什么同一件商品在不同平台算出来差这么多？</h3><p>因为固定费与百分比费的比例不同。低单价时固定费主导（上架费、每笔费、配送费、月费摊提），高单价时百分比与佣金上限主导。计算机把两者分开算，所以你会看到某些平台在 US$10 特别贵、在 US$200 特别便宜。</p><h3>月费是怎么摊的？</h3><p>预设以每月 200 单摊提；把你的实际单量填进去，月费对每笔订单的影响就会跟著变。单量少时自建官网的固定成本会明显上升。</p><h3>这些数字可以直接拿来报价吗？</h3><p>可以当基准，但要用你自己卖家后台的实际费率替换。品类费率、促销档期费率与退货率都会改变结果，虾皮台湾站 2026/12/11 起另有新制。</p>
+<div class="adslot" aria-hidden="true">广告</div>
+<div class="cta">
+<h2>想要一整年的版本？</h2>
+<p>模板把计算机变成一张 Excel：12 个平台费率表、每月订单数、商品成本、广告费、退货率，加上 30 个 SKU 的获利分级与 12 个月现金流。</p>
+<a class="btn" href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">取得模板 — US$24（优惠码 LAUNCH25 折 25% → US$18）</a>
+<p class="fine">立即下载 · Excel .xlsx，可用 Excel、Google Sheets、LibreOffice 开启 · 一次购买永久使用。</p>
+</div>
+</div></main><footer class="site"><div class="wrap">
+<div class="cols">
+<div><strong>跨境费用智库</strong>
+华语跨境卖家的平台费、实拿与 ROAS 试算。免注册、免追踪、无外部字型。<br>
+<a href="../../zh-hans/calculator/">→ 手续费与损益两平 ROAS 计算机</a></div>
+<div><strong>主要平台</strong><ul>
+<li><a href="../../zh-hans/fees/shopee-tw/">虾皮购物（台湾）</a> · <a href="../../zh-hans/fees/shopee-sg/">Shopee 新加坡</a></li>
+<li><a href="../../zh-hans/fees/amazon-fba/">Amazon FBA</a> · <a href="../../zh-hans/fees/tiktok-shop/">TikTok Shop</a></li>
+<li><a href="../../zh-hans/fees/etsy/">Etsy</a> · <a href="../../zh-hans/fees/shopify/">Shopify</a></li>
+<li><a href="../../zh-hans/fees/">全部 12 个平台 →</a></li></ul></div>
+<div><strong>工具与模板</strong><ul>
+<li><a href="../../zh-hans/calculator/">费用与实拿计算机</a></li>
+<li><a href="../../zh-hans/compare/">平台一对一比较</a></li>
+<li><a href="../../zh-hans/best/">依品类选平台</a></li>
+<li><a href="https://rwg4002.gumroad.com/l/crossborder-profit-roas-kit/LAUNCH25" target="_blank" rel="noopener">利润与 ROAS 核算模板（US$24）</a></li></ul></div>
+</div>
+<p><small class="fine">费率取自各平台官方费率页，查核日 2026年11月17日（美元售价、单件订单、不含广告与促销）。平台费率随时调整，定价前请以官方页面为准。与任何平台均无合作关系；数字为比较用的估算，非税务或会计建议。</small></p>
+<p><small class="fine">© 2026 跨境费用智库 · <a href="../../zh-hans/methodology/">费率来源与计算方法</a></small></p>
+</div></footer>
+</body></html>
+<script>window.__PLATFORMS__=[{"key": "amazon-fba", "name": "Amazon FBA", "group": "综合电商平台", "comps": [{"kind": "pct", "label": "销售佣金 15%（多数品类）", "rate": 0.15, "minimum": 0.3}, {"kind": "fixed", "label": "FBA 配送费（标准尺寸约 1 磅）", "amount": 4.15, "note": "ASSUMPTION，依尺寸段与重量而异"}, {"kind": "monthly", "label": "专业卖家月费摊提", "amount": 39.99, "note": "US$39.99／月，以 200 单摊提"}]}, {"key": "tiktok-shop", "name": "TikTok Shop", "group": "综合电商平台", "comps": [{"kind": "pct", "label": "平台推荐费 6%（含金流）", "rate": 0.06, "note": "珠宝 5%、二手 5%；新手前 30 天 3%"}]}, {"key": "shopee-tw", "name": "虾皮购物（台湾站）", "group": "亚洲平台", "comps": [{"kind": "pct", "label": "成交手续费 5.5%（品类基本费率，以一般品类为例）", "rate": 0.055, "note": "各品类 4–7.5%，促销档期另加 2%；单件上限 NT$35,000"}, {"kind": "pct", "label": "金流与系统处理费 2.5%", "rate": 0.025, "note": "按商品金额＋运费＋虾皮补贴计算"}, {"kind": "pct", "label": "免运及进阶卖家专案 6%（方案一）", "rate": 0.06, "note": "方案二为每单 NT$60；未报名者自 2026 起预设为方案二"}, {"kind": "fixed", "label": "代收转付发票服务费 NT$2.5", "amount": 0.0781, "note": "每张发票 NT$2.5"}]}, {"key": "shopee-sg", "name": "Shopee 新加坡站", "group": "亚洲平台", "comps": [{"kind": "pct", "label": "佣金 14.17%（非 Mall、一般非电子品类）", "rate": 0.1417, "cap": 44.44, "note": "含 GST；单件上限 S$60（约 US$44）"}, {"kind": "pct", "label": "交易手续费 3.27%", "rate": 0.0327, "note": "含运费；SPayLater 可达 6.54%"}]}, {"key": "shopify", "name": "Shopify", "group": "自建官网与收款", "comps": [{"kind": "pct", "label": "金流处理 2.9% + US$0.30", "rate": 0.029, "fixed": 0.3, "note": "以 Stripe 收款为例"}, {"kind": "pct", "label": "第三方金流附加费 2%", "rate": 0.02, "note": "Basic 方案；Grow 1%、Advanced 0.5%"}, {"kind": "monthly", "label": "月费摊提", "amount": 39.0, "note": "Basic 月缴 US$39，以 200 单摊提"}]}, {"key": "etsy", "name": "Etsy", "group": "综合电商平台", "comps": [{"kind": "fixed", "label": "上架费", "amount": 0.2, "note": "每件商品，售出后再次收取"}, {"kind": "pct", "label": "交易费 6.5%（含运费与礼品包装）", "rate": 0.065}, {"kind": "pct", "label": "金流处理 3% + US$0.25", "rate": 0.03, "fixed": 0.25, "note": "按含税总额计算"}]}, {"key": "ebay", "name": "eBay", "group": "综合电商平台", "comps": [{"kind": "pct", "label": "成交费 13.6%（前 US$7,500）", "rate": 0.136, "base_cap": 7500}, {"kind": "pct", "label": "成交费 2.35%（超过 US$7,500 部分）", "rate": 0.0235, "base_floor": 7500}, {"kind": "fixed", "label": "每笔订单费", "amount": 0.4, "note": "US$10 以下为 US$0.30"}]}, {"key": "walmart", "name": "Walmart Marketplace", "group": "综合电商平台", "comps": [{"kind": "pct", "label": "品类佣金 15%（多数品类）", "rate": 0.15, "note": "消费电子 8%、珠宝 20%、部分品类按价格分级"}]}, {"key": "stripe", "name": "Stripe", "group": "自建官网与收款", "comps": [{"kind": "pct", "label": "刷卡处理 2.9% + US$0.30", "rate": 0.029, "fixed": 0.3}, {"kind": "pct", "label": "跨境附加 2.5%（国际卡 1.5%＋币别转换 1%）", "rate": 0.025, "note": "ASSUMPTION：台湾／香港帐户收美元、买家持海外卡"}]}, {"key": "paypal", "name": "PayPal", "group": "自建官网与收款", "comps": [{"kind": "pct", "label": "PayPal 结帐 3.49% + US$0.49", "rate": 0.0349, "fixed": 0.49, "note": "信用卡 2.99% + 49¢；Pay Later 4.99% + 49¢"}, {"kind": "pct", "label": "跨境交易附加 1.5%", "rate": 0.015}]}, {"key": "gumroad", "name": "Gumroad", "group": "数位商品", "comps": [{"kind": "pct", "label": "平台费 10%", "rate": 0.1}, {"kind": "fixed", "label": "每笔固定费 US$0.50", "amount": 0.5}, {"kind": "pct", "label": "金流处理 2.9% + US$0.30", "rate": 0.029, "fixed": 0.3}]}, {"key": "lemon-squeezy", "name": "Lemon Squeezy", "group": "数位商品", "comps": [{"kind": "pct", "label": "平台费 5%（含金流与税务）", "rate": 0.05}, {"kind": "fixed", "label": "每笔固定费 US$0.50", "amount": 0.5}, {"kind": "pct", "label": "非美国买家附加 1.5%", "rate": 0.015}]}];</script>
+<script>
+(function(){
+  var P = window.__PLATFORMS__;
+  function r2(x){return Math.round((x+1e-9)*100)/100}
+  /*FEE_FN_START*/
+  function feeLines(p, price, orders){
+    var L=[], t=0, comps=p.comps||[];
+    for(var i=0;i<comps.length;i++){
+      var c=comps[i], amt=0;
+      if(c.kind==='pct'){
+        var base=price;
+        if(c.base_cap!==null&&c.base_cap!==undefined) base=Math.min(base,c.base_cap);
+        if(c.base_floor!==null&&c.base_floor!==undefined) base=Math.max(0,price-c.base_floor);
+        amt=base*c.rate;
+        if(c.minimum!==null&&c.minimum!==undefined) amt=Math.max(amt,c.minimum);
+        if(c.cap!==null&&c.cap!==undefined) amt=Math.min(amt,c.cap);
+        if(c.fixed!==null&&c.fixed!==undefined) amt+=c.fixed;
+      } else if(c.kind==='fixed'){ amt=c.amount; }
+      else if(c.kind==='monthly'){ amt=c.amount/orders; }
+      amt=r2(Math.max(0,amt));
+      if(Math.abs(amt)>0.0001){ L.push([c.label,amt]); t+=amt; }
+    }
+    return {lines:L,total:r2(t)};
+  }
+  /*FEE_FN_END*/
+  var el=function(id){return document.getElementById(id)};
+  function usd(x,c){ return 'US$'+Number(x).toLocaleString('en-US',{minimumFractionDigits:c?2:0,maximumFractionDigits:2}); }
+  function twd(x){ return 'NT$'+Math.round(x*32).toLocaleString('en-US'); }
+  function run(){
+    var key=el('plat').value, price=parseFloat(el('price').value)||0,
+        orders=parseFloat(el('orders').value)||200, cogs=parseFloat(el('cogs').value)||0,
+        ads=parseFloat(el('ads').value)||0;
+    var p=null; for(var i=0;i<P.length;i++){ if(P[i].key===key) p=P[i]; }
+    if(!p||price<=0) return;
+    var f=feeLines(p,price,orders), net=r2(price-f.total), eff=f.total/price*100;
+    var cogsAmt=r2(price*cogs/100), contrib=r2(net-cogsAmt);
+    var be=contrib>0?(price/contrib):null;
+    el('o-fee').textContent=usd(f.total,true);
+    el('o-net').textContent=usd(net,true);
+    el('o-eff').textContent=eff.toFixed(1)+'%';
+    el('o-contrib').textContent=usd(contrib,true);
+    el('o-be').textContent=be?be.toFixed(2)+'x':'—';
+    el('o-cpa').textContent=contrib>0?usd(contrib,true):'—';
+    el('o-orders').textContent=(ads>0&&contrib>0)?Math.ceil(ads/contrib):'—';
+    el('o-nt').textContent=twd(price)+' / 实拿 '+twd(net);
+    var rows='';
+    for(var i=0;i<f.lines.length;i++){ rows+='<tr><td>'+f.lines[i][0]+'</td><td class="num">-'+usd(f.lines[i][1],true)+'</td></tr>'; }
+    rows+='<tr><td><strong>平台费合计</strong></td><td class="num"><strong>-'+usd(f.total,true)+'</strong></td></tr>';
+    rows+='<tr><td><strong>实拿</strong></td><td class="num"><strong>'+usd(net,true)+'</strong></td></tr>';
+    el('breakdown').innerHTML=rows;
+    var all=[], max=0;
+    for(var j=0;j<P.length;j++){
+      var g=feeLines(P[j],price,orders); var v=r2(price-g.total);
+      all.push({name:P[j].name, net:v}); if(v>max) max=v;
+    }
+    all.sort(function(a,b){return b.net-a.net});
+    var h='';
+    for(var k=0;k<all.length;k++){
+      var w=max>0?Math.max(2,all[k].net/max*100):2;
+      h+='<div class="barrow"><span>'+all[k].name+'</span><span style="background:var(--line);border-radius:4px">'+
+         '<span class="bar" style="width:'+w.toFixed(0)+'%'+(all[k].net<0?';background:var(--red)':'')+'"></span></span>'+
+         '<span class="num" style="text-align:right">'+usd(all[k].net,true)+'</span></div>';
+    }
+    el('compare').innerHTML=h;
+    if(window.history&&history.replaceState){ history.replaceState(null,'','?p='+encodeURIComponent(key)+'&price='+price); }
+  }
+  var form=el('calc'); if(!form) return;
+  form.addEventListener('submit',function(e){e.preventDefault();run();});
+  ['plat','price','orders','cogs','ads'].forEach(function(id){ el(id).addEventListener('input',run); el(id).addEventListener('change',run); });
+  var q=new URLSearchParams(location.search);
+  if(q.get('p')&&document.querySelector('option[value="'+q.get('p')+'"]')) el('plat').value=q.get('p');
+  if(q.get('price')) el('price').value=q.get('price');
+  run();
+})();
+</script>
